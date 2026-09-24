@@ -160,41 +160,21 @@
   }
   .grid {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.25rem;
     padding: 1.25rem 1.5rem 1.5rem;
   }
-  @media (max-width: 720px) {
-    .grid { grid-template-columns: 1fr; }
-  }
   .grid.solo { grid-template-columns: 1fr; }
+  .grid .scan {
+    max-width: 640px;
+    margin: 0 auto 0.5rem;
+    display: block;
+  }
   .scan {
     width: 100%;
     border-radius: 6px;
     border: 3px solid #d4b896;
     background: #fff;
-  }
-  .placeholder {
-    width: 100%;
-    min-height: 220px;
-    border-radius: 6px;
-    border: 3px dashed #d4b896;
-    background:
-      repeating-linear-gradient(45deg, #f5e6d0, #f5e6d0 12px, #f0dcc0 12px, #f0dcc0 24px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1.5rem;
-    color: var(--terracotta);
-    font-style: italic;
-    font-size: 1.05rem;
-  }
-  .placeholder span {
-    background: rgba(255,248,239,.85);
-    padding: .75rem 1rem;
-    border-radius: 6px;
-    border: 1px solid #e0c9a8;
   }
   .meta { font-size: .95rem; color: var(--sage); font-weight: bold; margin: 0 0 .75rem; }
   h3 {
@@ -337,11 +317,8 @@
       <p class="chef">Chef says: Now children, gumbo ain’t a soup and it ain’t a stew — it’s a life lesson in a pot. Shellfish, smoked bird, and okra holding hands. Serve it over rice like you mean it.</p>
     </div>
     <p class="story">This gumbo came off Julius’s kitchen scans — the kind of pot that gathers a whole house. Alfre’s way means smoked turkey, sausage, okra, and the Gulf showing up late with shrimp and crab. You don’t rush gumbo. You let it teach you patience one ladle at a time.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r1.png" alt="Original scan for Children… Seafood Gumbo (Alfre’s Way)"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -392,11 +369,8 @@
       <p class="chef">Chef says: Children, a man who can’t throw down cornbread on short notice is a man unprepared for life. Keep the mix ready. Keep the buttermilk honest.</p>
     </div>
     <p class="story">Weeknight cornbread — the kind you bake while the greens simmer and somebody asks what’s for supper. Self-rising meal meets Jiffy, buttermilk keeps it tender, and a hot greased pan gives you that golden edge Southerners argue about in church parking lots.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r2.png" alt="Original scan for Everyday Love Quick Cornbread"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves one happy pan</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -431,11 +405,8 @@
       <p class="chef">Chef says: These little cornmeal cakes got history in ’em, children. Skillet-fried, golden, and ready for molasses or gravy — don’t overthink it.</p>
     </div>
     <p class="story">Hoecakes remember when cornmeal met a skillet and supper still needed to stretch. In North Memphis kitchens they stay thin, crisp-edged, and honest — molasses for sweet tooths, gravy for the serious, or plain beside beans.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r3.png" alt="Original scan for North Memphis Hoecakes"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -470,11 +441,8 @@
       <p class="chef">Chef says: Grits are comfort with a diploma. Breakfast, dinner, soak up the juices — when they’re good they’re great, and when they’re ordinary they’re still home.</p>
     </div>
     <p class="story">Baked grits take the humble pot of morning comfort and dress it for supper — garlic, cheese that melts into the grain, eggs to set the casserole, cheddar on top like a gold crown. Church-supper energy in a 2-quart dish.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r4.png" alt="Original scan for Southern-Style Baked Grits"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -516,11 +484,8 @@
       <p class="chef">Chef says: Children, when bacon fat meets sweet corn, time travel is real. Mama’s wood stove taught me that — your skillet can too.</p>
     </div>
     <p class="story">This is summer cut off the cob and fried in bacon drippings until the sugars caramelize just a little, then wrapped in evaporated milk and butter. Not canned creamed corn’s cousin — its wiser older sibling.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r5.png" alt="Original scan for “Hot Buttered” Fried Creamed Corn"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -556,11 +521,8 @@
       <p class="chef">Chef says: Baked beans are America’s road trip in a dish — sweet, tangy, mysterious. I use the can when life is loud; from-scratch when love has time.</p>
     </div>
     <p class="story">A pantry jazz improvisation: canned beans upgraded with peppers, a whisper of five-spice and curry, honey for shine, and cheddar cubes that melt into molten pockets. Weird spice list? That’s how family recipes get remembered.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r6.png" alt="Original scan for Cheddar Baked Beans"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -603,11 +565,8 @@
       <p class="chef">Chef says: Love ain’t on the ingredient list, children — you gotta bring that yourself. Navy beans, tomato paste, a little sweetness… and ribs on the side if you got ’em.</p>
     </div>
     <p class="story">From-scratch navy beans when you want the quiet version — tomato paste stretched with spring water, brown sugar or honey, butter for roundness. Simple enough to cook while the ribs finish. Love is the part you can’t measure.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r7.png" alt="Original scan for Homemade Baked Beans with Love"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves 2 to 4</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -644,11 +603,8 @@
       <p class="chef">Chef says: Don’t sleep on stewed tomatoes, children. Better than the can, patient on the stove, a little cayenne for truth-telling.</p>
     </div>
     <p class="story">Ripe beefsteaks broken down with maple, cider vinegar, and garden herbs until they surrender. Side dish, biscuit topper, or the bright note next to fried fish — cayenne keeps them honest.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r8.png" alt="Original scan for Spicy Stewed Tomatoes"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves 2 to 4</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -687,11 +643,8 @@
       <p class="chef">Chef says: One house rule, children: no lumps. Evaporated milk, a little Miracle Whip, butter — mash until your problems get creamy too.</p>
     </div>
     <p class="story">These aren’t fancy Parisian purée — they’re Southern smashed potatoes with evaporated milk for body and a spoon of Miracle Whip for tang that makes people ask what you put in them. Tell them it’s love. Or don’t.</p>
-    <div class="grid">
-      <div>
-        <img class="scan" src="images/r9.png" alt="Original scan for Smashing Mashed Potatoes"/>
-      </div>
-      <div>
+    <div class="grid solo">
+<div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
         <ul class="ings">
@@ -729,10 +682,8 @@
       <p class="chef">Chef says: Children, fried chicken is a covenant. Buttermilk for tenderness, seasoned flour for the jacket, hot oil for the sermon. Respect the rest time or eat regret.</p>
     </div>
     <p class="story">Sunday table icon across Black and white Southern kitchens alike — the bird that gathers cousins, church hats, and extra napkins. This home version leans on a buttermilk soak and a double dredge for that shatter-crisp crust.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Cast-iron &amp; crackling crust</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
@@ -778,10 +729,8 @@
       <p class="chef">Chef says: Biscuits are architecture, children. Cold butter, gentle hands, hot oven. Gravy is forgiveness poured on top — sage sausage and black pepper doing the talking.</p>
     </div>
     <p class="story">Breakfast that became anytime food — soft buttermilk biscuits split open under peppery sausage gravy. This is the plate that says the day can wait five more minutes.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Flaky, peppery, forgiven</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
@@ -825,10 +774,8 @@
       <p class="chef">Chef says: Real cornbread hears the skillet scream when batter hits hot bacon fat. No sugar arguments at my table — make it how your people taught you, but get that crust.</p>
     </div>
     <p class="story">The skillet staple — pot-likker’s best friend, chili’s roof, collards’ sidekick. Preheat the iron, shimmer the fat, pour, and listen for the sizzle that means crust is coming.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Skillet hymn</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8 (10-inch skillet)</p>
         <h3>Ingredients</h3>
@@ -870,10 +817,8 @@
       <p class="chef">Chef says: Children, mac and cheese is not a box and a prayer. It’s a béchamel with backbone, sharp cheddar with opinions, and a bake that bubbles at the edges like applause.</p>
     </div>
     <p class="story">Soul-food and church-supper essential — creamy center, bronzed top, the dish that disappears first at the potluck. This version builds a real cheese sauce, then bakes it proud.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Bubbling edges of joy</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -917,10 +862,8 @@
       <p class="chef">Chef says: Greens ain’t boiled punishment, children — they’re a slow conversation with smoked meat and pot likker. Save that liquor. That’s liquid gold for cornbread dunking.</p>
     </div>
     <p class="story">Year-round comfort and New Year’s luck — collards simmered with smoked turkey until silky, vinegar on the side for the bright folks, hot sauce for the brave. The pot likker is half the reason you cook them.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Pot likker included</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -962,10 +905,8 @@
       <p class="chef">Chef says: Lowcountry sent shrimp and grits up the coast and into every brunch menu, children. Creamy cheese grits below, garlicky shrimp and gravy above — that’s balance.</p>
     </div>
     <p class="story">From fish-camp breakfast to white-tablecloth supper, shrimp and cheese grits carry the Lowcountry into the wider South. Stone-ground if you can get them; patience either way.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Lowcountry in a bowl</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4</p>
         <h3>Ingredients</h3>
@@ -1013,10 +954,8 @@
       <p class="chef">Chef says: Barbecue is geography you can taste, children. This is a home oven/smoker-friendly pork shoulder with a vinegar-kissed sauce — pick your regional allegiance at the table.</p>
     </div>
     <p class="story">Pulled pork is patience meat — pork shoulder rubbed, cooked low until it surrenders, then dressed in sauce that argues vinegar vs tomato depending on which state raised you. Serve on buns or with slaw.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Low &amp; slow surrender</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 8 to 10</p>
         <h3>Ingredients</h3>
@@ -1063,10 +1002,8 @@
       <p class="chef">Chef says: This is sick-day medicine and celebration food in the same pot, children. Flat dumplings or drop — both legal. Broth must taste like somebody cared.</p>
     </div>
     <p class="story">Appalachian and Deep South comfort classic — stewed chicken, rich broth, dumplings that soak up love. Every grandmother swears hers is correct. This one leans flat, peppery, and honest.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Broth &amp; soft pillows</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6</p>
         <h3>Ingredients</h3>
@@ -1113,10 +1050,8 @@
       <p class="chef">Chef says: Vanilla wafers, custard, bananas — layered like a good friendship. Chill it so the cookies soften into cake. That’s not a flaw, children — that’s the plan.</p>
     </div>
     <p class="story">The dessert of church basements and family reunions — cooked custard (or the honest shortcut), ripe bananas, Nilla wafers, maybe meringue or whipped cream on top. Soft, cold, and gone by sundown.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Wafer-soft glory</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 8</p>
         <h3>Ingredients</h3>
@@ -1158,10 +1093,8 @@
       <p class="chef">Chef says: Pecan pie is sticky theology, children. Toasted nuts, dark sugar, a set custard that slices clean. Burn the crust and I’ll know.</p>
     </div>
     <p class="story">Holiday finale and potluck closer — Georgia and Texas both claim pecan pride. Toast the nuts, mind the bake so the center barely jiggles, and cool completely before you preach about slices.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Southern Top Ten · Sticky, set, sacred</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">One 9-inch pie (8 slices)</p>
         <h3>Ingredients</h3>
@@ -1212,10 +1145,8 @@
       <p class="chef">Chef says: Children, I ain’t Elvis — I’m just a cafeteria philosopher paying respects. Graceland cooks fried this sandwich in butter until the bread went gold and the banana went soft. That’s documented love, not rumor.</p>
     </div>
     <p class="story">Mary Jenkins Langston and other Graceland cooks described the King’s fried PB-and-banana sandwich so often it became American folklore. White bread, peanut butter, ripe banana, skillet butter — sometimes bacon fat in the telling. This is a home-kitchen homage to that documented favorite.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Graceland homage · Documented favorite</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 1 hungry legend (or 2 who share)</p>
         <h3>Ingredients</h3>
@@ -1250,10 +1181,8 @@
       <p class="chef">Chef says: Meatloaf fed the King between shows, children — Mary Jenkins’ kitchen again. This is a home loaf inspired by that Memphis table, not a stolen recipe card.</p>
     </div>
     <p class="story">Alongside the famous sandwich, Graceland cooks pointed to meatloaf as everyday comfort at Elvis’s table. A glazed loaf, soft crumb, leftover sandwiches the next day — Southern meatloaf culture with a Memphis spotlight.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Memphis table homage · Meatloaf night</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -1302,10 +1231,8 @@
       <p class="chef">Chef says: Dolly Parton ain’t in this kitchen, children — but East Tennessee chicken and dumplin’s sure are. She talks about ’em on TV, in cookbooks with sister Rachel, on sets when co-stars beg. We tip our apron and cook with respect.</p>
     </div>
     <p class="story">Sevier County’s favorite daughter has called chicken and dumplin’s a specialty and birthday favorite (TODAY; Dixie Fixin’s; Good Lookin’ Cookin’ with Rachel). This pot is a home homage to that East Tennessee comfort — flat dumplings, peppery broth, no rhinestones required.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>East Tennessee homage · Dumplin’ pot</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6</p>
         <h3>Ingredients</h3>
@@ -1356,10 +1283,8 @@
       <p class="chef">Chef says: Arkansas roots, Man in Black appetite. John Carter Cash put the family’s iron-pot chili in a cookbook — sirloin or venison, cornmeal to thicken. We tip our hat to Dyess Colony and cook our own pot.</p>
     </div>
     <p class="story">From The Cash and Carter Family Cookbook and NPR conversations with John Carter Cash: Johnny’s chili was serious business — beef or venison, thickened with cornmeal, born for an iron pot. Home adaptation for your Dutch oven.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Cash family homage · Iron pot</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -1405,10 +1330,8 @@
       <p class="chef">Chef says: June Carter’s ‘Stuff’ is fried potatoes and carrots meeting peppers, mushrooms, onion, and a hot-pepper cheese melt. NPR and the family cookbook said it plain — so we cook it plain and grateful.</p>
     </div>
     <p class="story">June’s skillet ‘Stuff’ shows up in Cash family lore as a beloved jumble of fried vegetables crowned with spicy cheese. Weeknight food with Carter Family soul — homage, not a stage costume.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Carter table homage · Skillet Stuff</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4</p>
         <h3>Ingredients</h3>
@@ -1454,10 +1377,8 @@
       <p class="chef">Chef says: Savannah’s Lady put gooey butter cake on the map for a lot of living rooms, children. Cake-mix crust, cream-cheese custard top — sweet enough to make you hush. Homage to a documented signature, not a claim on her kitchen.</p>
     </div>
     <p class="story">Paula Deen’s ooey gooey butter cake is a published signature (pauladeen.com lineage / Lady &amp; Sons world) — St. Louis cousin by way of Savannah sweetness. Home bakers know the cream-cheese layer that stays gloriously under-set.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Savannah homage · Gooey center</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 12</p>
         <h3>Ingredients</h3>
@@ -1502,10 +1423,8 @@
       <p class="chef">Chef says: Monticello, Georgia sent Trisha Yearwood out with family recipes and Food Network cameras. Wild rice casserole is weeknight church — creamy, hearty, no pretense. We cook our homage from the published tradition.</p>
     </div>
     <p class="story">Chicken and wild rice casserole appears across Trisha Yearwood’s Home Cooking corpus / Food Network shares as family-table comfort. A home-kitchen adaptation with wild rice, chicken, and a creamy binder.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Georgia kitchen homage · Casserole night</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -1553,10 +1472,8 @@
       <p class="chef">Chef says: Oklahoma’s Reba put a beanless chuck chili in a celebrity cookbook back when print was king. Chunky, spicy, no beans arguing in the pot — that’s the documented lane. We tip the red hair and simmer our own.</p>
     </div>
     <p class="story">Reba McEntire’s Hot ’n’ Spicy Chunky Beef Chili from the Oklahoma Celebrity Cookbook (1991) has been widely reprinted — beanless chuck chili with heat. Home homage for a Dutch oven and a cold night.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Oklahoma homage · Beanless &amp; bold</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -1607,10 +1524,8 @@
       <p class="chef">Chef says: Plains, Georgia — peanuts, porch talk, and Rosalynn’s cheese ring with strawberry preserves in the middle. National Archives and Southern Living kept the recipe famous. Children, that’s presidential potluck energy.</p>
     </div>
     <p class="story">The Plains Special Cheese Ring — cheddar, mayo, pecans, onion, strawberry preserves in the center — is Rosalynn Carter’s documented party classic (National Archives / Southern Living / Taste of Home reprints). A cold appetizer with Georgia manners.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Plains, GA homage · Preserve center</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves a party (10–12 as appetizer)</p>
         <h3>Ingredients</h3>
@@ -1655,10 +1570,8 @@
       <p class="chef">Chef says: Children, note the era — campaign-trail and governor’s-mansion Bill loved mild barbecue ribs, per longtime Little Rock cook Liza Ashley. Later came health turns and different plates. This homage is the mild ’90s Arkansas table, not a medical prescription.</p>
     </div>
     <p class="story">Liza Ashley (Seattle Times 1993 and mansion lore) pointed to mild-sauced barbecue pork ribs among Clinton favorites of that era. Home oven ribs with a gentle tomato-brown sugar glaze — Arkansas comfort, labeled honestly.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Arkansas ’90s homage · Mild glaze</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
@@ -1710,10 +1623,8 @@
       <p class="chef">Chef says: Miss Oprah called cornbread and black-eyed peas her favorite meal around her 64th birthday — People, E!, the whole gossip choir. Mississippi roots on a plate. We cook the homage; she keeps the mic.</p>
     </div>
     <p class="story">Oprah Winfrey (Kosciusko, MS roots) publicly named cornbread and black-eyed field peas a favorite meal. Hot-water cornbread for Stedman also appears in coverage. This plate is a home homage to that documented pairing — plus pot liquor vibes.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Mississippi roots homage · Birthday plate</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
@@ -1759,10 +1670,8 @@
       <p class="chef">Chef says: Tyler Perry said it himself — he loves a good breakfast, grits and eggs. New Orleans born, Atlanta building empire, still talking about morning bowls. Homage plate, children — simple and right.</p>
     </div>
     <p class="story">Quoted love for grits and eggs sits beside broader Southern comfort (mac &amp; cheese, greens, yams) in coverage of Perry’s tastes and Art Smith restaurant nods. This is the breakfast homage: creamy grits, soft eggs, maybe a little cheese.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Atlanta breakfast homage · Grits first</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 2 to 4</p>
         <h3>Ingredients</h3>
@@ -1808,10 +1717,8 @@
       <p class="chef">Chef says: Listen carefully, children — Beyoncé’s Houston love for Frenchy’s is documented. We are NOT cooking Frenchy’s secret formula. We’re making a home fried-chicken plate inspired by the soul-food spread the press says shows up around that loyalty: chicken, red beans &amp; rice, greens, cornbread. Homage. Period.</p>
     </div>
     <p class="story">Coverage (People, Eater Houston, Tina Knowles / Harvey relief context) ties Beyoncé to Frenchy’s Chicken in Houston. Typical order attributions include fried chicken, red beans &amp; rice, fries, greens, cornbread, lemon pound cake. This is a home-kitchen inspired plate — not a proprietary restaurant recipe.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Houston homage · NOT a proprietary recipe</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4</p>
         <h3>Ingredients</h3>
@@ -1860,10 +1767,8 @@
       <p class="chef">Chef says: Kiln, Mississippi sent a quarterback and a family jambalaya that Parade and the internet kept circulating — chicken, shrimp, ham, andouille, peppers, tomato, rice. One solid signature. We cook that one and don’t invent a whole Favre menu.</p>
     </div>
     <p class="story">Brett Favre’s family jambalaya has been widely published as a Parade/family recipe: a tomato-forward pot with mixed meats and shrimp. Home Dutch-oven homage for game day or any day Gulf Coast nostalgia hits.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Mississippi Gulf homage · One signature pot</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 8</p>
         <h3>Ingredients</h3>
@@ -1917,10 +1822,8 @@
       <p class="chef">Chef says: Reese Witherspoon’s Whiskey in a Teacup put Southern hosting in hardcover — including cornbread chili pie. Nashville-raised, New Orleans-born. We bake the homage in a skillet or casserole and pour sweet tea.</p>
     </div>
     <p class="story">Cornbread Chili Pie from Whiskey in a Teacup (tested widely by Kitchn/Delish types) layers chili with a cornbread lid — weeknight Southern casserole energy with Reese’s entertaining stamp. Home adaptation.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Whiskey in a Teacup homage · Chili under gold</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -1968,10 +1871,8 @@
       <p class="chef">Chef says: Alright, alright, alright — Texas tables love King Ranch casserole, and Matthew McConaughey’s been tied to it on Diners, Drive-Ins and Dives / Monument Cafe talk. Homage ‘caschiladas,’ children. No trademark on the drawl.</p>
     </div>
     <p class="story">King Ranch chicken — tortillas, chicken, peppers, creamy tomato-chili gravy, cheese — is a Texas church-supper classic McConaughey has publicly enjoyed (DDD / Texas Monthly orbit). Home casserole homage.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Texas homage · Caschilada energy</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -2022,10 +1923,8 @@
       <p class="chef">Chef says: Willie never met a waffle he didn’t like — Annie’s been on waffle duty, and chicken-fried steak rides shotgun in the coverage. Abbott, Texas outlaw breakfast. Homage plate. On the road again… to the skillet.</p>
     </div>
     <p class="story">Willie Nelson’s waffle habit is well attested (Annie Nelson; Allrecipes/Whiskey Riff coverage; cannabis cookbook context). Chicken-fried steak often pairs in secondary food coverage. CFS + waffles is the homage breakfast of champions who nap after.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Abbott, TX homage · Waffles almost every day</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4</p>
         <h3>Ingredients</h3>
@@ -2075,10 +1974,8 @@
       <p class="chef">Chef says: Butcher Holler raised Loretta Lynn on real country cooking — her cookbook You’re Cookin’ It Country put chicken and dumplings in print. We honor the holler with our own pot. Fan homage, children.</p>
     </div>
     <p class="story">Loretta Lynn’s You’re Cookin’ It Country collects Appalachian favorites including chicken and dumplings, biscuits, and sweets. This pot leans holler-style: stewed bird, flat dumplings, black pepper. Separate from Dolly’s East Tennessee pot — same love, different hollow.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Butcher Holler homage · Country cooking</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6</p>
         <h3>Ingredients</h3>
@@ -2127,10 +2024,8 @@
       <p class="chef">Chef says: Gladys Knight put her name on chicken-and-waffles restaurants — Atlanta soul with a midnight-breakfast passport. We fry and iron at home as homage to that signature brand energy, not as a secret-menu steal.</p>
     </div>
     <p class="story">Gladys Knight (and Ron Winans) Chicken &amp; Waffles made the pairing a restaurant signature across Atlanta and beyond; coverage notes she likes fried chicken crunchy outside, juicy in. Home plate homage with buttermilk bird and crisp waffles.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Atlanta soul homage · Crunchy &amp; golden</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4</p>
         <h3>Ingredients</h3>
@@ -2177,10 +2072,8 @@
       <p class="chef">Chef says: Careful now, children. Aretha Franklin named chitlins a favorite in 1967 Ebony — later she said she’d canceled them for health (NPR). We honor the Queen of Soul with an approachable plate: hot-water cornbread and greens. Chitlins stay in the history books unless you already know that work.</p>
     </div>
     <p class="story">Aretha (Memphis-born) is tied in coverage to classic soul plates — greens, hot-water cornbread, baked chicken — alongside the famous chitlins attribution. This homage leads with hot-water cornbread and pot greens: respectful, home-cookable, culturally grounded without demanding specialty offal work.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Queen of Soul homage · Approachable plate</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
@@ -2226,10 +2119,8 @@
       <p class="chef">Chef says: Fats Domino cooked red beans and pig’s feet on a hot plate while traveling — New Orleans never left the man. Monday beans tradition, children. Homage pot. Rice on the side like the city taught us.</p>
     </div>
     <p class="story">NOLA.com profiles and obituaries recalled Fats Domino’s habit of red beans and pig’s feet on the road; he also briefly lent his name to a fried-chicken franchise. Feature the Monday red beans — home adaptation of a documented habit.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>New Orleans homage · Monday beans</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6 to 8</p>
         <h3>Ingredients</h3>
@@ -2279,10 +2170,8 @@
       <p class="chef">Chef says: Bam — carefully. Emeril’s New Orleans barbecue shrimp is butter, Worcestershire, pepper, and French bread for pushing. Chef-celebrity territory with published recipes. We cook a home homage and say thank you to NOLA.</p>
     </div>
     <p class="story">Emeril Lagasse’s BBQ shrimp (emerils.com lineage) is head-on shrimp in a peppery butter-Worcestershire sauce — not tomato BBQ. Sop with French bread. Home skillet homage to a documented signature.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>NOLA chef homage · Butter &amp; pepper</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4 as entrée / 6 as appetizer</p>
         <h3>Ingredients</h3>
@@ -2333,10 +2222,8 @@
       <p class="chef">Chef says: Miss Leah Chase fed Civil Rights and Creole soul at Dooky Chase’s. Gumbo Z’Herbes — green gumbo for Holy Thursday — is her documented glory. We offer a simplified home homage with many greens, not a museum replica of nine sacred counts. Respect the Queen of Creole Cuisine.</p>
     </div>
     <p class="story">Leah Chase’s Gumbo Z’Herbes (The Dooky Chase Cookbook; TODAY shares) traditionally uses many greens and meats for Holy Thursday. This simplified home version keeps the green spirit: collards, mustard, turnip, spinach, smoked meat, filé optional — weeknight-possible reverence.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Dooky Chase homage · Green gumbo simplified</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 8</p>
         <h3>Ingredients</h3>
@@ -2390,10 +2277,8 @@
       <p class="chef">Chef says: Edna Lewis — Grande Dame of Southern cooking, Freetown, Virginia. The Taste of Country Cooking taught a nation that seasonal farm cooking was high art. Pan-fried chicken in lard and butter is homage to that teaching, children — not a photocopy of every page.</p>
     </div>
     <p class="story">Edna Lewis’s Virginia country cooking centered seasonality, careful frying, and respect for ingredients. Pan-fried chicken associated with her teaching often uses good fat, unhurried browning, and buttermilk or careful seasoning. Home cast-iron homage.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Freetown, VA homage · Grande Dame</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 4 to 6</p>
         <h3>Ingredients</h3>
@@ -2438,10 +2323,8 @@
       <p class="chef">Chef says: I gar-on-tee you’d smile if Justin Wilson walked into the cafeteria, children. Cajun storyteller-cook — dirty rice with giblets, gumbo with a wink. Homage pot from his published repertoire, not a PBS tape dub.</p>
     </div>
     <p class="story">Justin Wilson’s cookbooks and TV episodes made dirty rice and crawfish étouffée living-room Cajun. This dirty rice uses chicken livers/gizzards (or sausage shortcut) for that ‘dirty’ color and depth — home homage.</p>
-    <div class="grid">
-      <div>
-        <div class="placeholder"><span>Cajun TV homage · I gar-on-tee</span></div>
-      </div>
+    <div class="grid solo">
+
       <div>
         <p class="meta">Serves 6</p>
         <h3>Ingredients</h3>
