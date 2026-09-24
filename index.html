@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Chef’s Southern Digital Cookbook</title>
+<style>
+  :root {
+    --cream: #f7efe3;
+    --paper: #fff8ef;
+    --terracotta: #c45c26;
+    --deep: #3b1f14;
+    --gold: #e8b86d;
+    --sage: #5c7a5e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    background:
+      radial-gradient(ellipse at top, #2a1510 0%, #1a0e0a 60%),
+      #1a0e0a;
+    color: var(--deep);
+    line-height: 1.55;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  .cover {
+    background: linear-gradient(160deg, var(--cream), #f0d9b8 50%, #e7c9a0);
+    border: 8px double var(--terracotta);
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    margin-bottom: 2rem;
+  }
+  .cover .badge {
+    display: inline-block;
+    background: var(--deep);
+    color: var(--gold);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: .72rem;
+    padding: .35rem .8rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .cover h1 {
+    margin: 0 0 .5rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--terracotta);
+    line-height: 1.1;
+  }
+  .cover .sub {
+    font-style: italic;
+    color: var(--deep);
+    opacity: .85;
+    margin: 0 0 1.25rem;
+  }
+  .cover .sermon {
+    text-align: left;
+    max-width: 36rem;
+    margin: 0 auto;
+    background: rgba(255,255,255,.35);
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--terracotta);
+  }
+  nav.toc {
+    background: var(--paper);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e0c9a8;
+  }
+  nav.toc h2 { margin: 0 0 .75rem; color: var(--terracotta); font-size: 1.25rem; }
+  nav.toc ol { margin: 0; padding-left: 1.25rem; }
+  nav.toc a { color: var(--deep); text-decoration: none; border-bottom: 1px dotted var(--terracotta); }
+  nav.toc a:hover { color: var(--terracotta); }
+  article.recipe {
+    background: var(--paper);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid #e0c9a8;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  }
+  article.recipe .head {
+    background: linear-gradient(90deg, #3b1f14, #6b3a24);
+    color: var(--cream);
+    padding: 1.25rem 1.5rem .75rem;
+  }
+  article.recipe .head h2 {
+    margin: 0;
+    color: var(--gold);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+  }
+  article.recipe .chef {
+    margin: .6rem 0 0;
+    font-style: italic;
+    opacity: .95;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .scan {
+    width: 100%;
+    border-radius: 6px;
+    border: 3px solid #d4b896;
+    background: #fff;
+  }
+  .meta { font-size: .95rem; color: var(--sage); font-weight: bold; margin: 0 0 .75rem; }
+  h3 {
+    color: var(--terracotta);
+    margin: 1rem 0 .4rem;
+    font-size: 1.05rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  ul.ings {
+    columns: 2;
+    column-gap: 1.25rem;
+    margin: 0;
+    padding-left: 1.1rem;
+    color: #8a3a18;
+    font-style: italic;
+  }
+  @media (max-width: 520px) { ul.ings { columns: 1; } }
+  ol.steps { margin: 0; padding-left: 1.2rem; }
+  ol.steps li { margin-bottom: .55rem; }
+  footer.book {
+    text-align: center;
+    color: #c9a882;
+    font-size: .9rem;
+    padding: 1rem;
+  }
+  .drop::first-letter {
+    font-size: 2.4em;
+    float: left;
+    line-height: .85;
+    padding-right: .08em;
+    color: var(--terracotta);
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="cover">
+    <div class="badge">A Digital Soul-Food Hymnal</div>
+    <h1>Chef’s Southern Digital Cookbook</h1>
+    <p class="sub">Honoring the cafeteria wisdom of Chef — South Park’s greatest kitchen philosopher</p>
+    <p class="sermon drop">Hello there, children. Gather ’round the stove. These recipes came off Julius’s scanned pages — gumbo, cornbread, hoecakes, grit, beans, tomatoes, and potatoes smashed without mercy. I didn’t invent Southern cooking… but I will remind you: cook with patience, season with honesty, and always leave room for love.</p>
+  </header>
+  <nav class="toc">
+    <h2>What’s on the menu</h2>
+    <ol>
+      <li><a href="#gumbo">Children… Seafood Gumbo (Alfre’s Way)</a> — 6 to 8</li>
+      <li><a href="#cornbread">Everyday Love Quick Cornbread</a> — one happy pan</li>
+      <li><a href="#hoecakes">North Memphis Hoecakes</a> — 4 to 6</li>
+      <li><a href="#grits">Southern-Style Baked Grits</a> — 4 to 6</li>
+      <li><a href="#corn">“Hot Buttered” Fried Creamed Corn</a> — 4 to 6</li>
+      <li><a href="#cheddar-beans">Cheddar Baked Beans</a> — 4 to 6</li>
+      <li><a href="#doug-beans">Homemade Baked Beans with Love</a> — 2 to 4</li>
+      <li><a href="#tomatoes">Spicy Stewed Tomatoes</a> — 2 to 4</li>
+      <li><a href="#mash">Smashing Mashed Potatoes</a> — 4 to 6</li>
+    </ol>
+  </nav>
+  <article class="recipe" id="gumbo">
+    <div class="head">
+      <h2>Children… Seafood Gumbo (Alfre’s Way)</h2>
+      <p class="chef">Chef says: Now children, gumbo ain’t a soup and it ain’t a stew — it’s a life lesson in a pot. Shellfish, smoked bird, and okra holding hands. Serve it over rice like you mean it.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r1.png" alt="Original scan for Children… Seafood Gumbo (Alfre’s Way)"/>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>6 quarts spring water</li>
+        <li>6 skinless, boneless chicken breast halves, cut into 2-inch pieces</li>
+        <li>1 smoked turkey leg</li>
+        <li>1/4 cup olive oil</li>
+        <li>4 onions, diced</li>
+        <li>5 green bell peppers, diced</li>
+        <li>2 cloves garlic, minced</li>
+        <li>2 teaspoons dried thyme leaves, crumbled</li>
+        <li>1 link smoked turkey sausage, cut into 1/2-inch pieces</li>
+        <li>1 16-ounce bag frozen cut okra</li>
+        <li>1 tablespoon fresh lemon juice</li>
+        <li>2 pounds shrimp, peeled and deveined</li>
+        <li>3 blue crabs</li>
+        <li>1/3 pound lump crabmeat</li>
+        <li>2 bay leaves</li>
+        <li>1 tablespoon Creole seasoning</li>
+        <li>Cayenne pepper to taste</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>In an 8-quart pot, heat water to boiling. Add the chicken and turkey leg and reduce heat to simmer.</li>
+        <li>In a large skillet, heat the oil over medium heat until hot but not smoking and sauté the onions until browned, about 15 minutes. Add the green peppers, garlic and thyme. Cook, stirring occasionally, until the vegetables have softened, about 10 minutes, and add to the chicken mixture.</li>
+        <li>Wipe out the skillet with a paper towel and heat the pan over medium heat. Add the sausage and sauté until browned. Add the okra and cook until thawed, about 5 minutes. Add the lemon juice (to cut the okra’s attitude) and mix well.</li>
+        <li>Transfer the sausage mixture to the pot with the chicken and simmer, uncovered, over medium heat until chicken starts to shred and the gumbo thickens, about 1½ hours.</li>
+        <li>Add the shrimp, crabs, crabmeat, and bay leaves. Cover and cook 10 minutes.</li>
+        <li>Add Creole seasoning and cayenne. Taste it. Respect it. Serve over rice.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <article class="recipe" id="cornbread">
+    <div class="head">
+      <h2>Everyday Love Quick Cornbread</h2>
+      <p class="chef">Chef says: Children, a man who can’t throw down cornbread on short notice is a man unprepared for life. Keep the mix ready. Keep the buttermilk honest.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r2.png" alt="Original scan for Everyday Love Quick Cornbread"/>
+      </div>
+      <div>
+        <p class="meta">Serves one happy pan</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 cups self-rising cornmeal</li>
+        <li>1 cup Jiffy cornbread mix</li>
+        <li>2 eggs</li>
+        <li>1 cup buttermilk</li>
+        <li>1/3 cup vegetable oil</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 350°F. Grease a 13×9-inch baking pan with cooking spray and heat it in the oven while you make the batter.</li>
+        <li>In a medium bowl, combine cornmeal and Jiffy mix. Add eggs, buttermilk, and oil; mix until moistened, adding a splash of water if needed.</li>
+        <li>Spread in the hot pan and bake until golden, 15 to 20 minutes.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <article class="recipe" id="hoecakes">
+    <div class="head">
+      <h2>North Memphis Hoecakes</h2>
+      <p class="chef">Chef says: These little cornmeal cakes got history in ’em, children. Skillet-fried, golden, and ready for molasses or gravy — don’t overthink it.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r3.png" alt="Original scan for North Memphis Hoecakes"/>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 cups plain cornmeal</li>
+        <li>1 cup Jiffy cornbread mix</li>
+        <li>1 egg</li>
+        <li>Water (enough for a thin, smooth batter)</li>
+        <li>1/4 cup canola or vegetable oil</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Combine cornmeal, Jiffy mix, and egg; stir in water until the batter is thin and smooth.</li>
+        <li>Heat oil to cover the bottom of a heavy skillet. Drop about 1/3 cup batter per cake. Cook until golden; flip and brown the other side.</li>
+        <li>Drain on paper towels. Eat warm.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <article class="recipe" id="grits">
+    <div class="head">
+      <h2>Southern-Style Baked Grits</h2>
+      <p class="chef">Chef says: Grits are comfort with a diploma. Breakfast, dinner, soak up the juices — when they’re good they’re great, and when they’re ordinary they’re still home.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r4.png" alt="Original scan for Southern-Style Baked Grits"/>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>4 cups water</li>
+        <li>1/2 teaspoon salt</li>
+        <li>1 cup grits</li>
+        <li>1 tablespoon butter</li>
+        <li>1 clove garlic, minced</li>
+        <li>6 ounces bacon-flavored cheese</li>
+        <li>1/2 cup milk</li>
+        <li>2 eggs, beaten</li>
+        <li>Pinch of paprika</li>
+        <li>1/2 cup grated cheddar cheese</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 350°F. Butter a 2-quart baking dish.</li>
+        <li>Boil water with salt; stir in grits and simmer until tender, about 15 minutes.</li>
+        <li>Melt butter; sauté garlic about 1 minute. Add bacon-flavored cheese until melted; stir in milk.</li>
+        <li>Fold garlic-cheese mixture into grits with eggs and paprika. Spread in dish; bake until set, about 40 minutes.</li>
+        <li>Top with cheddar; bake until melted, about 15 minutes more.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <article class="recipe" id="corn">
+    <div class="head">
+      <h2>“Hot Buttered” Fried Creamed Corn</h2>
+      <p class="chef">Chef says: Children, when bacon fat meets sweet corn, time travel is real. Mama’s wood stove taught me that — your skillet can too.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r5.png" alt="Original scan for “Hot Buttered” Fried Creamed Corn"/>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>6 ears corn</li>
+        <li>3 slices bacon</li>
+        <li>2 tablespoons butter</li>
+        <li>1 tablespoon all-purpose flour</li>
+        <li>1 cup evaporated milk, warmed</li>
+        <li>Salt to taste</li>
+        <li>Pepper to taste</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Cut kernels off the cobs. Fry bacon until crisp; drain and crumble.</li>
+        <li>In the drippings, sauté corn until lightly browned. Add butter; stir in flour until smooth. Gradually add evaporated milk. Stir in bacon; cover and cook until thickened, about 10 minutes. Season with salt and pepper.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <article class="recipe" id="cheddar-beans">
+    <div class="head">
+      <h2>Cheddar Baked Beans</h2>
+      <p class="chef">Chef says: Baked beans are America’s road trip in a dish — sweet, tangy, mysterious. I use the can when life is loud; from-scratch when love has time.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r6.png" alt="Original scan for Cheddar Baked Beans"/>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 28-ounce can baked beans</li>
+        <li>1/2 cup chopped onion</li>
+        <li>1/2 cup chopped red bell pepper</li>
+        <li>1/2 cup chopped green bell pepper</li>
+        <li>1 1/2 teaspoons minced fresh cilantro</li>
+        <li>1/4 teaspoon Chinese five-spice powder</li>
+        <li>1/4 teaspoon dried basil</li>
+        <li>1/8 teaspoon curry powder</li>
+        <li>1/8 teaspoon ground cardamom</li>
+        <li>Pinch of ground black pepper</li>
+        <li>1/4 to 1/3 cup honey or maple syrup</li>
+        <li>1 tablespoon butter</li>
+        <li>1 cup cubed sharp cheddar cheese</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 350°F.</li>
+        <li>Place beans in a 1½-quart baking dish. Stir in onion, peppers, seasonings, and honey or maple syrup. Dot with butter; top with cheddar cubes.</li>
+        <li>Bake 30 minutes, until cheese is bubbly and the spices announce themselves.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <article class="recipe" id="doug-beans">
+    <div class="head">
+      <h2>Homemade Baked Beans with Love</h2>
+      <p class="chef">Chef says: Love ain’t on the ingredient list, children — you gotta bring that yourself. Navy beans, tomato paste, a little sweetness… and ribs on the side if you got ’em.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r7.png" alt="Original scan for Homemade Baked Beans with Love"/>
+      </div>
+      <div>
+        <p class="meta">Serves 2 to 4</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 cup spring water</li>
+        <li>1/2 cup tomato paste</li>
+        <li>3 cups cooked navy beans</li>
+        <li>2 teaspoons brown sugar or honey</li>
+        <li>2 teaspoons butter</li>
+        <li>1/2 teaspoon all-purpose flour</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 300°F.</li>
+        <li>Mix water and tomato paste until smooth; cook over medium heat 20 minutes.</li>
+        <li>In a 1½-quart baking dish, combine beans, sugar or honey, butter, and flour. Stir in the tomato mixture.</li>
+        <li>Bake 15 to 20 minutes. Serve with ribs if the spirit moves you.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <article class="recipe" id="tomatoes">
+    <div class="head">
+      <h2>Spicy Stewed Tomatoes</h2>
+      <p class="chef">Chef says: Don’t sleep on stewed tomatoes, children. Better than the can, patient on the stove, a little cayenne for truth-telling.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r8.png" alt="Original scan for Spicy Stewed Tomatoes"/>
+      </div>
+      <div>
+        <p class="meta">Serves 2 to 4</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>4 ripe beefsteak tomatoes, sliced</li>
+        <li>1 tablespoon maple syrup</li>
+        <li>1 tablespoon apple cider vinegar</li>
+        <li>1 teaspoon chopped fresh basil</li>
+        <li>1 teaspoon chopped fresh sage</li>
+        <li>1 teaspoon chopped fresh oregano</li>
+        <li>Sea salt to taste</li>
+        <li>Pinch of cayenne pepper</li>
+        <li>1 tablespoon butter (optional)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Combine tomatoes, syrup, vinegar, herbs, salt, cayenne, and enough water to cover.</li>
+        <li>Bring to a boil; reduce heat and simmer until tomatoes fall apart, about 20 minutes.</li>
+        <li>Stir in butter if using; cover and simmer 5 minutes more.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <article class="recipe" id="mash">
+    <div class="head">
+      <h2>Smashing Mashed Potatoes</h2>
+      <p class="chef">Chef says: One house rule, children: no lumps. Evaporated milk, a little Miracle Whip, butter — mash until your problems get creamy too.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <img class="scan" src="images/r9.png" alt="Original scan for Smashing Mashed Potatoes"/>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 pounds boiling potatoes, peeled</li>
+        <li>4 tablespoons butter</li>
+        <li>1½ cups evaporated milk</li>
+        <li>2 to 3 tablespoons Miracle Whip</li>
+        <li>Sea salt to taste</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Cover potatoes with water; boil and simmer until fork-tender, about 30 minutes.</li>
+        <li>Drain and mash until lump-free. Stir in butter, evaporated milk, and Miracle Whip. Season with sea salt.</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+  <footer class="book">
+    Built for Julius from Desktop → Recipes screenshots · Fan homage to Chef (South Park) · Not affiliated with Comedy Central<br/>
+    Open this file in any browser. Original scans sit beside each recipe.
+  </footer>
+</div>
+</body>
+</html>
