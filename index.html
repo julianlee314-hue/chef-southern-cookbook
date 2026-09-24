@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Chef’s Southern Digital Cookbook</title>
+<title>Chef’s Southern Digital Cookbook — Expanded Edition</title>
 <style>
+
   :root {
     --cream: #f7efe3;
     --paper: #fff8ef;
@@ -58,11 +59,17 @@
   }
   .cover .sermon {
     text-align: left;
-    max-width: 36rem;
+    max-width: 40rem;
     margin: 0 auto;
     background: rgba(255,255,255,.35);
     padding: 1rem 1.25rem;
     border-left: 4px solid var(--terracotta);
+  }
+  .legal {
+    font-size: .78rem;
+    opacity: .8;
+    margin-top: 1rem;
+    font-style: italic;
   }
   nav.toc {
     background: var(--paper);
@@ -72,9 +79,48 @@
     border: 1px solid #e0c9a8;
   }
   nav.toc h2 { margin: 0 0 .75rem; color: var(--terracotta); font-size: 1.25rem; }
+  nav.toc h3 { margin: 1rem 0 .4rem; color: var(--sage); font-size: .95rem; text-transform: uppercase; letter-spacing: .06em; }
   nav.toc ol { margin: 0; padding-left: 1.25rem; }
   nav.toc a { color: var(--deep); text-decoration: none; border-bottom: 1px dotted var(--terracotta); }
   nav.toc a:hover { color: var(--terracotta); }
+  .part {
+    background: linear-gradient(90deg, #3b1f14, #6b3a24);
+    color: var(--gold);
+    padding: 1.5rem 1.5rem;
+    border-radius: 10px;
+    margin: 2.5rem 0 1.5rem;
+    border: 2px solid var(--terracotta);
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  }
+  .part h2 { margin: 0 0 .4rem; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--gold); }
+  .part p { margin: 0; color: var(--cream); font-style: italic; opacity: .95; }
+  .celeb-intro {
+    background: var(--paper);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e0c9a8;
+    border-left: 6px solid var(--terracotta);
+  }
+  .celeb-intro h2 { margin: 0 0 .35rem; color: var(--terracotta); font-size: 1.6rem; }
+  .celeb-intro .conn { color: var(--sage); font-weight: bold; font-size: .95rem; margin: 0 0 .6rem; }
+  .celeb-intro .homage { font-style: italic; margin: 0 0 .5rem; }
+  .celeb-intro .docnote {
+    font-size: .85rem;
+    background: rgba(196,92,38,.08);
+    padding: .5rem .75rem;
+    border-radius: 4px;
+    margin: 0;
+  }
+  .sidebar {
+    background: #f0e6d4;
+    border: 1px dashed var(--sage);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    font-size: .92rem;
+  }
+  .sidebar h3 { margin: 0 0 .4rem; color: var(--sage); text-transform: none; letter-spacing: 0; }
   article.recipe {
     background: var(--paper);
     border-radius: 10px;
@@ -91,12 +137,26 @@
   article.recipe .head h2 {
     margin: 0;
     color: var(--gold);
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-size: clamp(1.35rem, 3vw, 1.85rem);
   }
   article.recipe .chef {
     margin: .6rem 0 0;
     font-style: italic;
     opacity: .95;
+  }
+  .story {
+    padding: 1rem 1.5rem 0;
+    font-style: italic;
+    color: #5a3a28;
+  }
+  .story::before {
+    content: "A little story — ";
+    font-style: normal;
+    font-weight: bold;
+    color: var(--terracotta);
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    font-size: .8rem;
   }
   .grid {
     display: grid;
@@ -107,11 +167,34 @@
   @media (max-width: 720px) {
     .grid { grid-template-columns: 1fr; }
   }
+  .grid.solo { grid-template-columns: 1fr; }
   .scan {
     width: 100%;
     border-radius: 6px;
     border: 3px solid #d4b896;
     background: #fff;
+  }
+  .placeholder {
+    width: 100%;
+    min-height: 220px;
+    border-radius: 6px;
+    border: 3px dashed #d4b896;
+    background:
+      repeating-linear-gradient(45deg, #f5e6d0, #f5e6d0 12px, #f0dcc0 12px, #f0dcc0 24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--terracotta);
+    font-style: italic;
+    font-size: 1.05rem;
+  }
+  .placeholder span {
+    background: rgba(255,248,239,.85);
+    padding: .75rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #e0c9a8;
   }
   .meta { font-size: .95rem; color: var(--sage); font-weight: bold; margin: 0 0 .75rem; }
   h3 {
@@ -130,8 +213,27 @@
     font-style: italic;
   }
   @media (max-width: 520px) { ul.ings { columns: 1; } }
+  .grid.solo ul.ings { columns: 2; }
   ol.steps { margin: 0; padding-left: 1.2rem; }
   ol.steps li { margin-bottom: .55rem; }
+  .secrets {
+    margin: 0 1.5rem 1.5rem;
+    background: linear-gradient(135deg, #2a1810, #4a2a18);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--gold);
+    box-shadow: inset 0 0 30px rgba(0,0,0,.25);
+  }
+  .secrets h3 {
+    color: var(--gold);
+    margin: 0 0 .5rem;
+    font-size: 1rem;
+    letter-spacing: .08em;
+  }
+  .secrets h3::before { content: "🔑 "; }
+  .secrets ul { margin: 0; padding-left: 1.1rem; }
+  .secrets li { margin-bottom: .45rem; }
   footer.book {
     text-align: center;
     color: #c9a882;
@@ -146,35 +248,81 @@
     color: var(--terracotta);
     font-weight: bold;
   }
+  .back-top { text-align: center; margin: 1rem 0 2rem; }
+  .back-top a { color: var(--gold); font-size: .9rem; }
+
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="cover">
-    <div class="badge">A Digital Soul-Food Hymnal</div>
+    <div class="badge">A Digital Soul-Food Hymnal · Expanded Edition</div>
     <h1>Chef’s Southern Digital Cookbook</h1>
     <p class="sub">Honoring the cafeteria wisdom of Chef — South Park’s greatest kitchen philosopher</p>
-    <p class="sermon drop">Hello there, children. Gather ’round the stove. These recipes came off Julius’s scanned pages — gumbo, cornbread, hoecakes, grit, beans, tomatoes, and potatoes smashed without mercy. I didn’t invent Southern cooking… but I will remind you: cook with patience, season with honesty, and always leave room for love.</p>
+    <p class="sermon drop">Hello there, children. Gather ’round the stove. Tonight the table got bigger. Julius’s scanned kitchen pages still hold Part I — gumbo, cornbread, hoecakes, and the rest. Part II brings the Southern Top Ten backbone every cafeteria should know by heart. And Part III? Celebrity guests at the table — Elvis to Edna Lewis, Dolly to Leah Chase — cooking documented favorites as fan homage. I didn’t invent Southern cooking… and I am not those legends. I’m just reminding you: cook with patience, season with honesty, leave room for love, and tip your hat when the famous sit down to supper.</p>
+    <p class="legal">Parody homage to Chef / South Park cafeteria wisdom — not affiliated with Comedy Central. Recipes are home-kitchen adaptations inspired by publicly documented favorites. No celebrity endorsement claimed. Restaurant dishes are inspired homages, not proprietary formulas.</p>
   </header>
-  <nav class="toc">
+  <nav class="toc" id="toc">
     <h2>What’s on the menu</h2>
-    <ol>
-      <li><a href="#gumbo">Children… Seafood Gumbo (Alfre’s Way)</a> — 6 to 8</li>
-      <li><a href="#cornbread">Everyday Love Quick Cornbread</a> — one happy pan</li>
-      <li><a href="#hoecakes">North Memphis Hoecakes</a> — 4 to 6</li>
-      <li><a href="#grits">Southern-Style Baked Grits</a> — 4 to 6</li>
-      <li><a href="#corn">“Hot Buttered” Fried Creamed Corn</a> — 4 to 6</li>
-      <li><a href="#cheddar-beans">Cheddar Baked Beans</a> — 4 to 6</li>
-      <li><a href="#doug-beans">Homemade Baked Beans with Love</a> — 2 to 4</li>
-      <li><a href="#tomatoes">Spicy Stewed Tomatoes</a> — 2 to 4</li>
-      <li><a href="#mash">Smashing Mashed Potatoes</a> — 4 to 6</li>
+    <h3>Part I — Original Kitchen Scans</h3><ol>
+      <li><a href="#gumbo">Children… Seafood Gumbo (Alfre’s Way)</a></li>
+      <li><a href="#cornbread">Everyday Love Quick Cornbread</a></li>
+      <li><a href="#hoecakes">North Memphis Hoecakes</a></li>
+      <li><a href="#grits">Southern-Style Baked Grits</a></li>
+      <li><a href="#corn">“Hot Buttered” Fried Creamed Corn</a></li>
+      <li><a href="#cheddar-beans">Cheddar Baked Beans</a></li>
+      <li><a href="#doug-beans">Homemade Baked Beans with Love</a></li>
+      <li><a href="#tomatoes">Spicy Stewed Tomatoes</a></li>
+      <li><a href="#mash">Smashing Mashed Potatoes</a></li>
     </ol>
-  </nav>
+    <h3>Part II — Southern Top Ten</h3><ol>
+      <li><a href="#tt-fried-chicken">Buttermilk Fried Chicken</a></li>
+      <li><a href="#tt-biscuits-gravy">Buttermilk Biscuits &amp; Sausage Gravy</a></li>
+      <li><a href="#tt-cast-iron-cornbread">Cast-Iron Cornbread</a></li>
+      <li><a href="#tt-mac-cheese">Baked Macaroni &amp; Cheese</a></li>
+      <li><a href="#tt-collards">Collard Greens with Smoked Turkey</a></li>
+      <li><a href="#tt-shrimp-grits">Shrimp &amp; Cheese Grits</a></li>
+      <li><a href="#tt-pulled-pork">BBQ Pulled Pork</a></li>
+      <li><a href="#tt-chicken-dumplings">Chicken &amp; Dumplings</a></li>
+      <li><a href="#tt-banana-pudding">Banana Pudding</a></li>
+      <li><a href="#tt-pecan-pie">Pecan Pie</a></li>
+    </ol>
+    <h3>Part III — Celebrity Kitchen</h3><ol>
+      <li><a href="#celeb-elvis">Elvis Presley — Graceland &amp; Memphis</a></li>
+      <li><a href="#celeb-dolly">Dolly Parton — Locust Ridge, East Tennessee</a></li>
+      <li><a href="#celeb-cash">Johnny Cash &amp; June Carter Cash</a></li>
+      <li><a href="#celeb-paula">Paula Deen — Albany → Savannah</a></li>
+      <li><a href="#celeb-trisha">Trisha Yearwood — Monticello, Georgia</a></li>
+      <li><a href="#celeb-reba">Reba McEntire — Southeastern Oklahoma</a></li>
+      <li><a href="#celeb-carter">Jimmy Carter — Plains, Georgia</a></li>
+      <li><a href="#celeb-clinton">Bill Clinton — Hope / Hot Springs, Arkansas</a></li>
+      <li><a href="#celeb-oprah">Oprah Winfrey — Kosciusko, Mississippi roots</a></li>
+      <li><a href="#celeb-tyler">Tyler Perry — New Orleans → Atlanta</a></li>
+      <li><a href="#celeb-beyonce">Beyoncé — Houston, Texas</a></li>
+      <li><a href="#celeb-favre">Brett Favre — Kiln / Gulfport, Mississippi</a></li>
+      <li><a href="#celeb-reese">Reese Witherspoon — New Orleans / Nashville</a></li>
+      <li><a href="#celeb-mcconaughey">Matthew McConaughey — Uvalde / Longview, Texas</a></li>
+      <li><a href="#celeb-willie">Willie Nelson — Abbott, Texas</a></li>
+      <li><a href="#celeb-loretta">Loretta Lynn — Butcher Holler, Kentucky</a></li>
+      <li><a href="#celeb-gladys">Gladys Knight — Atlanta, Georgia</a></li>
+      <li><a href="#celeb-aretha">Aretha Franklin — Memphis roots</a></li>
+      <li><a href="#celeb-fats">Fats Domino — New Orleans</a></li>
+      <li><a href="#celeb-emeril">Emeril Lagasse — New Orleans culinary identity</a></li>
+      <li><a href="#celeb-leah">Leah Chase — New Orleans Creole</a></li>
+      <li><a href="#celeb-edna">Edna Lewis — Freetown, Virginia</a></li>
+      <li><a href="#celeb-justin">Justin Wilson — Louisiana Cajun</a></li>
+      <li><a href="#celeb-kenny-sidebar">Kenny Chesney (sidebar)</a></li>
+    </ol>
+  </nav>  <section class="part" id="part-i">
+    <h2>Part I — Original Kitchen Scans</h2>
+    <p>Julius’s scanned pages, transcribed and plated beside the photographs. The cookbook’s first love.</p>
+  </section>
   <article class="recipe" id="gumbo">
     <div class="head">
       <h2>Children… Seafood Gumbo (Alfre’s Way)</h2>
       <p class="chef">Chef says: Now children, gumbo ain’t a soup and it ain’t a stew — it’s a life lesson in a pot. Shellfish, smoked bird, and okra holding hands. Serve it over rice like you mean it.</p>
     </div>
+    <p class="story">This gumbo came off Julius’s kitchen scans — the kind of pot that gathers a whole house. Alfre’s way means smoked turkey, sausage, okra, and the Gulf showing up late with shrimp and crab. You don’t rush gumbo. You let it teach you patience one ladle at a time.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r1.png" alt="Original scan for Children… Seafood Gumbo (Alfre’s Way)"/>
@@ -203,7 +351,7 @@
         </ul>
         <h3>How you do it</h3>
         <ol class="steps">
-        <li>In an 8-quart pot, heat water to boiling. Add the chicken and turkey leg and reduce heat to simmer.</li>
+        <li>In an 8-quart pot, bring water to boiling. Add the chicken and turkey leg and reduce heat to simmer.</li>
         <li>In a large skillet, heat the oil over medium heat until hot but not smoking and sauté the onions until browned, about 15 minutes. Add the green peppers, garlic and thyme. Cook, stirring occasionally, until the vegetables have softened, about 10 minutes, and add to the chicken mixture.</li>
         <li>Wipe out the skillet with a paper towel and heat the pan over medium heat. Add the sausage and sauté until browned. Add the okra and cook until thawed, about 5 minutes. Add the lemon juice (to cut the okra’s attitude) and mix well.</li>
         <li>Transfer the sausage mixture to the pot with the chicken and simmer, uncovered, over medium heat until chicken starts to shred and the gumbo thickens, about 1½ hours.</li>
@@ -212,12 +360,23 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Brown the onions properly — pale onions make pale gumbo. Take the full 15 minutes.</li>
+        <li>Lemon juice on okra isn’t folklore; it softens the ‘slime’ so the pot stays silky, not sticky.</li>
+        <li>Seafood goes in last. Overcooked shrimp turn into pencil erasers — 8 to 10 minutes is plenty.</li>
+        <li>Taste cayenne at the table, not just the stove. Heat blooms as the pot sits.</li>
+        <li>Day-two gumbo is wiser. Cool uncovered briefly, then refrigerate; reheat gently.</li>
+      </ul>
+    </div>
   </article>
   <article class="recipe" id="cornbread">
     <div class="head">
       <h2>Everyday Love Quick Cornbread</h2>
       <p class="chef">Chef says: Children, a man who can’t throw down cornbread on short notice is a man unprepared for life. Keep the mix ready. Keep the buttermilk honest.</p>
     </div>
+    <p class="story">Weeknight cornbread — the kind you bake while the greens simmer and somebody asks what’s for supper. Self-rising meal meets Jiffy, buttermilk keeps it tender, and a hot greased pan gives you that golden edge Southerners argue about in church parking lots.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r2.png" alt="Original scan for Everyday Love Quick Cornbread"/>
@@ -240,12 +399,22 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Hot pan first — cold batter hitting hot fat is how you get that crisp bottom crust.</li>
+        <li>Stop mixing the second it’s moistened. Overworked cornbread turns dense and sad.</li>
+        <li>Buttermilk should be room-temp-ish; ice-cold dairy shocks the rise.</li>
+        <li>If the batter looks like thick cake batter, splash in water until it pours — it should ribbon, not clump.</li>
+      </ul>
+    </div>
   </article>
   <article class="recipe" id="hoecakes">
     <div class="head">
       <h2>North Memphis Hoecakes</h2>
       <p class="chef">Chef says: These little cornmeal cakes got history in ’em, children. Skillet-fried, golden, and ready for molasses or gravy — don’t overthink it.</p>
     </div>
+    <p class="story">Hoecakes remember when cornmeal met a skillet and supper still needed to stretch. In North Memphis kitchens they stay thin, crisp-edged, and honest — molasses for sweet tooths, gravy for the serious, or plain beside beans.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r3.png" alt="Original scan for North Memphis Hoecakes"/>
@@ -268,12 +437,22 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Batter should be thinner than pancake batter — think heavy cream, not muffin dough.</li>
+        <li>Oil depth matters: a skim isn’t enough; you want a shallow fry, not a dry pan.</li>
+        <li>Don’t crowd the skillet. Crowded cakes steam and turn pale.</li>
+        <li>Flip once. Peeking and poking breaks the crust you’re building.</li>
+      </ul>
+    </div>
   </article>
   <article class="recipe" id="grits">
     <div class="head">
       <h2>Southern-Style Baked Grits</h2>
       <p class="chef">Chef says: Grits are comfort with a diploma. Breakfast, dinner, soak up the juices — when they’re good they’re great, and when they’re ordinary they’re still home.</p>
     </div>
+    <p class="story">Baked grits take the humble pot of morning comfort and dress it for supper — garlic, cheese that melts into the grain, eggs to set the casserole, cheddar on top like a gold crown. Church-supper energy in a 2-quart dish.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r4.png" alt="Original scan for Southern-Style Baked Grits"/>
@@ -303,12 +482,22 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Whisk grits in vigorously when they hit boiling water — lumps form in the first 30 seconds.</li>
+        <li>Temper the eggs: stir a spoon of hot grits into the beaten eggs before folding, or you’ll scramble them.</li>
+        <li>Let the casserole rest 10 minutes after baking so it slices clean instead of collapsing.</li>
+        <li>Bacon-flavored cheese can be sharp cheddar + a pinch of smoked paprika if your store doesn’t stock it.</li>
+      </ul>
+    </div>
   </article>
   <article class="recipe" id="corn">
     <div class="head">
       <h2>“Hot Buttered” Fried Creamed Corn</h2>
       <p class="chef">Chef says: Children, when bacon fat meets sweet corn, time travel is real. Mama’s wood stove taught me that — your skillet can too.</p>
     </div>
+    <p class="story">This is summer cut off the cob and fried in bacon drippings until the sugars caramelize just a little, then wrapped in evaporated milk and butter. Not canned creamed corn’s cousin — its wiser older sibling.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r5.png" alt="Original scan for “Hot Buttered” Fried Creamed Corn"/>
@@ -332,12 +521,22 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>After cutting kernels, scrape the cob with the back of the knife — that ‘milk’ is free flavor.</li>
+        <li>Warm the evaporated milk before adding so the flour doesn’t seize into lumps.</li>
+        <li>Brown the corn lightly before the milk goes in — that Maillard kiss is the whole point.</li>
+        <li>Cover for the last simmer so it doesn’t scorch; stir once or twice to check the bottom.</li>
+      </ul>
+    </div>
   </article>
   <article class="recipe" id="cheddar-beans">
     <div class="head">
       <h2>Cheddar Baked Beans</h2>
       <p class="chef">Chef says: Baked beans are America’s road trip in a dish — sweet, tangy, mysterious. I use the can when life is loud; from-scratch when love has time.</p>
     </div>
+    <p class="story">A pantry jazz improvisation: canned beans upgraded with peppers, a whisper of five-spice and curry, honey for shine, and cheddar cubes that melt into molten pockets. Weird spice list? That’s how family recipes get remembered.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r6.png" alt="Original scan for Cheddar Baked Beans"/>
@@ -368,12 +567,22 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Cube the cheddar (don’t shred) so you get lava pockets instead of a sealed cheese lid.</li>
+        <li>Taste before baking — canned beans vary wildly in sweetness; adjust honey accordingly.</li>
+        <li>The tiny spice amounts matter: toast them briefly in your palm smell-test before dumping in.</li>
+        <li>Rest 5 minutes out of the oven so the sauce thickens instead of running all over the plate.</li>
+      </ul>
+    </div>
   </article>
   <article class="recipe" id="doug-beans">
     <div class="head">
       <h2>Homemade Baked Beans with Love</h2>
       <p class="chef">Chef says: Love ain’t on the ingredient list, children — you gotta bring that yourself. Navy beans, tomato paste, a little sweetness… and ribs on the side if you got ’em.</p>
     </div>
+    <p class="story">From-scratch navy beans when you want the quiet version — tomato paste stretched with spring water, brown sugar or honey, butter for roundness. Simple enough to cook while the ribs finish. Love is the part you can’t measure.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r7.png" alt="Original scan for Homemade Baked Beans with Love"/>
@@ -398,12 +607,22 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Cook the tomato-water mixture the full 20 minutes — raw paste tastes metallic until it mellows.</li>
+        <li>Use already-cooked, well-drained beans; wet beans dilute the sauce into soup.</li>
+        <li>Low oven (300°F) keeps sugar from scorching while flavors marry.</li>
+        <li>A pinch of salt and black pepper (not on the original card) wakes everything up — season to taste.</li>
+      </ul>
+    </div>
   </article>
   <article class="recipe" id="tomatoes">
     <div class="head">
       <h2>Spicy Stewed Tomatoes</h2>
       <p class="chef">Chef says: Don’t sleep on stewed tomatoes, children. Better than the can, patient on the stove, a little cayenne for truth-telling.</p>
     </div>
+    <p class="story">Ripe beefsteaks broken down with maple, cider vinegar, and garden herbs until they surrender. Side dish, biscuit topper, or the bright note next to fried fish — cayenne keeps them honest.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r8.png" alt="Original scan for Spicy Stewed Tomatoes"/>
@@ -430,12 +649,22 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Use truly ripe tomatoes — hard winter ones stew into sour sadness.</li>
+        <li>Vinegar + maple is the balance: taste after 15 minutes and nudge sweet or sharp.</li>
+        <li>Don’t pulverize with a blender; the broken slices are the texture you want.</li>
+        <li>Butter at the end rounds acidity the way cream does in tomato soup.</li>
+      </ul>
+    </div>
   </article>
   <article class="recipe" id="mash">
     <div class="head">
       <h2>Smashing Mashed Potatoes</h2>
       <p class="chef">Chef says: One house rule, children: no lumps. Evaporated milk, a little Miracle Whip, butter — mash until your problems get creamy too.</p>
     </div>
+    <p class="story">These aren’t fancy Parisian purée — they’re Southern smashed potatoes with evaporated milk for body and a spoon of Miracle Whip for tang that makes people ask what you put in them. Tell them it’s love. Or don’t.</p>
     <div class="grid">
       <div>
         <img class="scan" src="images/r9.png" alt="Original scan for Smashing Mashed Potatoes"/>
@@ -457,10 +686,1752 @@
         </ol>
       </div>
     </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Start potatoes in cold salted water so they cook evenly — hot water = raw cores.</li>
+        <li>Drain hard, then return the pot to low heat 30 seconds to steam off extra moisture before mashing.</li>
+        <li>Warm the evaporated milk; cold milk makes gluey potatoes.</li>
+        <li>Miracle Whip goes in last, off heat — heat can make mayonnaise-style dressings separate.</li>
+      </ul>
+    </div>
   </article>
+  <section class="part" id="part-ii">
+    <h2>Part II — Southern Top Ten</h2>
+    <p>The backbone dishes — fried chicken to pecan pie — written in Chef’s voice for every table that needs the classics.</p>
+  </section>
+  <article class="recipe" id="tt-fried-chicken">
+    <div class="head">
+      <h2>Buttermilk Fried Chicken</h2>
+      <p class="chef">Chef says: Children, fried chicken is a covenant. Buttermilk for tenderness, seasoned flour for the jacket, hot oil for the sermon. Respect the rest time or eat regret.</p>
+    </div>
+    <p class="story">Sunday table icon across Black and white Southern kitchens alike — the bird that gathers cousins, church hats, and extra napkins. This home version leans on a buttermilk soak and a double dredge for that shatter-crisp crust.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Cast-iron &amp; crackling crust</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 whole chicken (3–4 lb), cut into 8 pieces (or equivalent parts)</li>
+        <li>2 cups buttermilk</li>
+        <li>1 tablespoon hot sauce</li>
+        <li>2 teaspoons salt (for brine)</li>
+        <li>2 cups all-purpose flour</li>
+        <li>2 teaspoons salt</li>
+        <li>2 teaspoons black pepper</li>
+        <li>1 tablespoon paprika</li>
+        <li>1 teaspoon garlic powder</li>
+        <li>1 teaspoon onion powder</li>
+        <li>1/2 teaspoon cayenne</li>
+        <li>Peanut or vegetable oil for frying</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Whisk buttermilk, hot sauce, and 2 tsp salt. Submerge chicken; refrigerate 4 hours or overnight.</li>
+        <li>Mix flour with remaining seasonings in a wide bowl.</li>
+        <li>Heat 1½ inches oil in a heavy skillet or Dutch oven to 325–350°F.</li>
+        <li>Remove chicken from buttermilk, letting excess drip. Dredge thoroughly in flour; rest on a rack 10 minutes. Optional: dip back in buttermilk and dredge again for extra crunch.</li>
+        <li>Fry in batches, dark meat first, turning once, until deep golden and 165°F inside (thighs ~14–18 min, breasts ~10–14). Drain on a wire rack, not paper towels alone.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Oil at 325°F when chicken goes in — it drops; you want to settle around 300–325°F while frying.</li>
+        <li>Rest dredged chicken 10 minutes so the crust hydrates and sticks instead of falling off.</li>
+        <li>Wire rack &gt; paper towels: steam under the bird softens crust if it sits flat on towels.</li>
+        <li>Don’t skip salt in the buttermilk — that’s your brine, not just a soak.</li>
+        <li>Never crowd: overcrowding collapses oil temp and you get greasy pale chicken.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-biscuits-gravy">
+    <div class="head">
+      <h2>Buttermilk Biscuits &amp; Sausage Gravy</h2>
+      <p class="chef">Chef says: Biscuits are architecture, children. Cold butter, gentle hands, hot oven. Gravy is forgiveness poured on top — sage sausage and black pepper doing the talking.</p>
+    </div>
+    <p class="story">Breakfast that became anytime food — soft buttermilk biscuits split open under peppery sausage gravy. This is the plate that says the day can wait five more minutes.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Flaky, peppery, forgiven</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>BISCUITS: 2 cups all-purpose flour</li>
+        <li>1 tablespoon baking powder</li>
+        <li>1/2 teaspoon baking soda</li>
+        <li>1 teaspoon salt</li>
+        <li>6 tablespoons cold unsalted butter, cubed</li>
+        <li>3/4 to 1 cup cold buttermilk</li>
+        <li>GRAVY: 1 lb pork breakfast sausage</li>
+        <li>1/4 cup all-purpose flour</li>
+        <li>2½ to 3 cups whole milk</li>
+        <li>1 tsp black pepper (or more)</li>
+        <li>Salt to taste</li>
+        <li>Pinch of cayenne (optional)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 450°F. Whisk flour, baking powder, soda, salt. Cut in butter until pea-sized. Stir in buttermilk just until dough comes together.</li>
+        <li>Turn onto floured board; pat to ¾-inch. Cut with a floured cutter — no twisting. Bake 12–15 minutes until tall and golden.</li>
+        <li>Meanwhile, brown sausage in a skillet, breaking it up. Sprinkle flour over fat; cook 1 minute. Whisk in milk gradually; simmer until thick. Season boldly with pepper and salt.</li>
+        <li>Split warm biscuits; ladle gravy over like you mean it.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Butter and buttermilk ice-cold — warm fat melts and you lose flake.</li>
+        <li>Never twist the biscuit cutter; twisting seals edges so they won’t rise.</li>
+        <li>Gravy wants more black pepper than you think — taste after it thickens.</li>
+        <li>If gravy goes pasty, splash milk; if thin, simmer longer — don’t dump more raw flour.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-cast-iron-cornbread">
+    <div class="head">
+      <h2>Cast-Iron Cornbread</h2>
+      <p class="chef">Chef says: Real cornbread hears the skillet scream when batter hits hot bacon fat. No sugar arguments at my table — make it how your people taught you, but get that crust.</p>
+    </div>
+    <p class="story">The skillet staple — pot-likker’s best friend, chili’s roof, collards’ sidekick. Preheat the iron, shimmer the fat, pour, and listen for the sizzle that means crust is coming.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Skillet hymn</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8 (10-inch skillet)</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 tablespoons bacon drippings or oil</li>
+        <li>1½ cups fine yellow cornmeal</li>
+        <li>1/2 cup all-purpose flour</li>
+        <li>1 teaspoon baking powder</li>
+        <li>1/2 teaspoon baking soda</li>
+        <li>1 teaspoon salt</li>
+        <li>1 tablespoon sugar (optional)</li>
+        <li>2 large eggs</li>
+        <li>1½ cups buttermilk</li>
+        <li>4 tablespoons melted butter</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Put drippings in a 10-inch cast-iron skillet; place in oven and heat to 425°F.</li>
+        <li>Whisk dry ingredients. In another bowl, whisk eggs, buttermilk, melted butter. Combine just until moistened.</li>
+        <li>Carefully swirl hot fat to coat skillet; pour batter in (it should sizzle). Bake 20–25 minutes until golden and a tester comes out clean.</li>
+        <li>Rest 5 minutes; slice wedges. Serve with butter, honey, or pot likker.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>The preheat is non-negotiable — cold iron = pale bottom.</li>
+        <li>Bacon drippings beat neutral oil for flavor; save them in a jar like treasure.</li>
+        <li>Pull when edges pull from the pan slightly; overbaking dries the crumb.</li>
+        <li>Sugar is regional theology — omit for savory Deep South style, keep a spoon for sweeter Mid-South tables.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-mac-cheese">
+    <div class="head">
+      <h2>Baked Macaroni &amp; Cheese</h2>
+      <p class="chef">Chef says: Children, mac and cheese is not a box and a prayer. It’s a béchamel with backbone, sharp cheddar with opinions, and a bake that bubbles at the edges like applause.</p>
+    </div>
+    <p class="story">Soul-food and church-supper essential — creamy center, bronzed top, the dish that disappears first at the potluck. This version builds a real cheese sauce, then bakes it proud.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Bubbling edges of joy</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 lb elbow macaroni</li>
+        <li>4 tablespoons butter</li>
+        <li>1/4 cup all-purpose flour</li>
+        <li>3 cups whole milk, warmed</li>
+        <li>1 teaspoon dry mustard</li>
+        <li>1/2 teaspoon paprika</li>
+        <li>1/2 teaspoon salt</li>
+        <li>1/4 teaspoon black pepper</li>
+        <li>3 cups shredded sharp cheddar</li>
+        <li>1 cup shredded Gruyère or more cheddar</li>
+        <li>1/2 cup crushed Ritz or buttered breadcrumbs (topping)</li>
+        <li>2 tablespoons butter, melted (for topping)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Cook pasta 1–2 minutes shy of package directions; drain. Preheat oven to 350°F. Butter a 9×13 dish.</li>
+        <li>Melt 4 Tbsp butter; whisk in flour 1–2 minutes. Gradually whisk in warm milk; simmer until thick. Season with mustard, paprika, salt, pepper.</li>
+        <li>Off heat, stir in most of the cheeses until melted. Fold in pasta. Spread in dish; top with remaining cheese mixed with crumbs and melted butter.</li>
+        <li>Bake 25–30 minutes until bubbling and golden. Rest 10 minutes before serving.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Undercook pasta — it finishes in the oven and stays al dente, not mush.</li>
+        <li>Warm milk into the roux prevents lumps; cold milk fights you.</li>
+        <li>Sharp cheddar for flavor, a little melty cheese (Gruyère/American) for stretch — all-cheddar can turn grainy if overheated.</li>
+        <li>Rest after baking: molten cheese needs a minute to set into scoopable glory.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-collards">
+    <div class="head">
+      <h2>Collard Greens with Smoked Turkey</h2>
+      <p class="chef">Chef says: Greens ain’t boiled punishment, children — they’re a slow conversation with smoked meat and pot likker. Save that liquor. That’s liquid gold for cornbread dunking.</p>
+    </div>
+    <p class="story">Year-round comfort and New Year’s luck — collards simmered with smoked turkey until silky, vinegar on the side for the bright folks, hot sauce for the brave. The pot likker is half the reason you cook them.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Pot likker included</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 bunches collard greens (about 2 lb), stemmed and chopped</li>
+        <li>1 smoked turkey wing or leg</li>
+        <li>1 large onion, sliced</li>
+        <li>3 cloves garlic, smashed</li>
+        <li>6 cups chicken stock or water</li>
+        <li>1 tablespoon apple cider vinegar (plus more to serve)</li>
+        <li>1 teaspoon sugar</li>
+        <li>1/2 teaspoon red pepper flakes</li>
+        <li>Salt and black pepper to taste</li>
+        <li>Hot sauce for the table</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Rinse greens thoroughly in several changes of water — grit hides in the folds.</li>
+        <li>In a large pot, simmer smoked turkey, onion, garlic, and stock 30 minutes to start a broth.</li>
+        <li>Add greens in handfuls as they wilt. Stir in vinegar, sugar, pepper flakes. Simmer uncovered or partly covered 45–90 minutes until tender to your liking.</li>
+        <li>Season with salt and pepper. Serve with pot likker, extra vinegar, and hot sauce.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Wash like you mean it — sandy greens ruin the whole pot.</li>
+        <li>Smoked turkey &gt; ham hock if you want deep smoke without as much salt bomb; still taste before salting.</li>
+        <li>Acid at the end brightens; too much early can keep greens from softening.</li>
+        <li>Don’t throw away pot likker — cornbread was invented to chase it.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-shrimp-grits">
+    <div class="head">
+      <h2>Shrimp &amp; Cheese Grits</h2>
+      <p class="chef">Chef says: Lowcountry sent shrimp and grits up the coast and into every brunch menu, children. Creamy cheese grits below, garlicky shrimp and gravy above — that’s balance.</p>
+    </div>
+    <p class="story">From fish-camp breakfast to white-tablecloth supper, shrimp and cheese grits carry the Lowcountry into the wider South. Stone-ground if you can get them; patience either way.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Lowcountry in a bowl</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>GRITS: 1 cup stone-ground grits</li>
+        <li>4 cups water or stock</li>
+        <li>1 cup milk</li>
+        <li>2 tablespoons butter</li>
+        <li>1 cup sharp cheddar, shredded</li>
+        <li>Salt to taste</li>
+        <li>SHRIMP: 1 lb large shrimp, peeled</li>
+        <li>4 slices bacon, chopped</li>
+        <li>1 small onion, diced</li>
+        <li>1 bell pepper, diced</li>
+        <li>2 cloves garlic</li>
+        <li>1/2 cup chicken stock</li>
+        <li>1 tablespoon lemon juice</li>
+        <li>1/2 teaspoon Cajun seasoning</li>
+        <li>2 green onions, sliced</li>
+        <li>Salt &amp; pepper</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Cook grits in water/stock per package (stone-ground often 30–45 min), stirring. Finish with milk, butter, cheddar, salt. Keep warm.</li>
+        <li>Cook bacon until crisp; remove. In drippings, sauté onion and pepper until soft; add garlic 30 seconds.</li>
+        <li>Add shrimp and Cajun seasoning; cook until just pink. Deglaze with stock and lemon; simmer briefly. Return bacon; adjust salt.</li>
+        <li>Spoon grits into bowls; top with shrimp, gravy, and green onions.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Stone-ground grits need low-and-slow and frequent stirring — rush them and they stay gritty.</li>
+        <li>Pull shrimp the second they curl into C-shapes; O-shapes are overcooked.</li>
+        <li>Cheese off heat into grits so it melts smooth instead of breaking.</li>
+        <li>A squeeze of lemon at the end cuts the richness — don’t skip acid.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-pulled-pork">
+    <div class="head">
+      <h2>BBQ Pulled Pork</h2>
+      <p class="chef">Chef says: Barbecue is geography you can taste, children. This is a home oven/smoker-friendly pork shoulder with a vinegar-kissed sauce — pick your regional allegiance at the table.</p>
+    </div>
+    <p class="story">Pulled pork is patience meat — pork shoulder rubbed, cooked low until it surrenders, then dressed in sauce that argues vinegar vs tomato depending on which state raised you. Serve on buns or with slaw.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Low &amp; slow surrender</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 8 to 10</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>4–5 lb boneless pork shoulder (Boston butt)</li>
+        <li>2 tablespoons kosher salt</li>
+        <li>2 tablespoons brown sugar</li>
+        <li>1 tablespoon paprika</li>
+        <li>1 tablespoon black pepper</li>
+        <li>1 teaspoon garlic powder</li>
+        <li>1 teaspoon onion powder</li>
+        <li>1/2 teaspoon cayenne</li>
+        <li>SAUCE: 1 cup apple cider vinegar</li>
+        <li>1/2 cup ketchup</li>
+        <li>2 tablespoons brown sugar</li>
+        <li>1 tablespoon mustard</li>
+        <li>1 teaspoon hot sauce</li>
+        <li>1/2 teaspoon salt</li>
+        <li>1/2 teaspoon pepper</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Mix rub; coat pork generously. Rest refrigerated at least 2 hours or overnight.</li>
+        <li>Cook low: smoker at 250°F, or oven at 300°F in a roasting pan with a splash of apple cider in the bottom, covered after the first hour, until 195–205°F internal and probe-tender (often 5–7 hours).</li>
+        <li>Rest 30–45 minutes tented. Shred with forks, discarding big fat globs.</li>
+        <li>Whisk sauce ingredients; warm. Toss pork with enough sauce to gloss; serve rest on the side.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Temperature targets matter more than clock time — pull when probe slides in like warm butter (~200°F).</li>
+        <li>Rest before pulling or juices run all over the board instead of staying in the meat.</li>
+        <li>Sauce goes on after pulling so you control wet vs dry; never boil the meat in sauce for hours.</li>
+        <li>Vinegar-forward sauce wakes fatty pork — taste and add sugar only if your crowd needs it.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-chicken-dumplings">
+    <div class="head">
+      <h2>Chicken &amp; Dumplings</h2>
+      <p class="chef">Chef says: This is sick-day medicine and celebration food in the same pot, children. Flat dumplings or drop — both legal. Broth must taste like somebody cared.</p>
+    </div>
+    <p class="story">Appalachian and Deep South comfort classic — stewed chicken, rich broth, dumplings that soak up love. Every grandmother swears hers is correct. This one leans flat, peppery, and honest.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Broth &amp; soft pillows</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 whole chicken (3–4 lb) or 3 lb bone-in parts</li>
+        <li>10 cups water</li>
+        <li>1 onion, quartered</li>
+        <li>2 carrots</li>
+        <li>2 celery stalks</li>
+        <li>2 bay leaves</li>
+        <li>Salt &amp; pepper</li>
+        <li>DUMPLINGS: 2 cups all-purpose flour</li>
+        <li>1 teaspoon salt</li>
+        <li>1/2 teaspoon baking powder</li>
+        <li>1/3 cup shortening or cold butter</li>
+        <li>2/3 to 3/4 cup cold buttermilk or ice water</li>
+        <li>2 tablespoons butter</li>
+        <li>1/4 cup cream or evaporated milk (optional finish)</li>
+        <li>Fresh parsley or thyme</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Simmer chicken with aromatics and water until tender, ~1 hour. Remove chicken; strain broth, return 8 cups to pot. Season well. Shred chicken off the bone.</li>
+        <li>For dumplings: mix flour, salt, baking powder; cut in fat; add liquid to form a soft dough. Roll thin (⅛-inch); cut into strips or squares.</li>
+        <li>Bring broth to a gentle boil; drop dumplings one by one. Cover and simmer 12–15 minutes without peeking too much.</li>
+        <li>Return chicken; stir in butter and cream if using. Taste for salt and lots of black pepper. Serve hot.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Season the broth like soup before dumplings go in — flour dumplings dilute flavor.</li>
+        <li>Don’t stir aggressively after adding dumplings or they break into mush.</li>
+        <li>Bone-in chicken makes better broth than boneless breasts alone — bones are free stock.</li>
+        <li>Thin-rolled flat dumplings cook faster and soak broth better than thick dough bombs.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-banana-pudding">
+    <div class="head">
+      <h2>Banana Pudding</h2>
+      <p class="chef">Chef says: Vanilla wafers, custard, bananas — layered like a good friendship. Chill it so the cookies soften into cake. That’s not a flaw, children — that’s the plan.</p>
+    </div>
+    <p class="story">The dessert of church basements and family reunions — cooked custard (or the honest shortcut), ripe bananas, Nilla wafers, maybe meringue or whipped cream on top. Soft, cold, and gone by sundown.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Wafer-soft glory</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>3/4 cup sugar</li>
+        <li>1/3 cup all-purpose flour</li>
+        <li>1/4 teaspoon salt</li>
+        <li>4 large egg yolks</li>
+        <li>3 cups whole milk</li>
+        <li>2 teaspoons vanilla extract</li>
+        <li>2 tablespoons butter</li>
+        <li>1 box vanilla wafers (~11 oz)</li>
+        <li>4–5 ripe bananas, sliced</li>
+        <li>TOPPING: 1 cup heavy cream whipped with 2 Tbsp sugar, or meringue from egg whites</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Whisk sugar, flour, and salt in a saucepan. Whisk in yolks, then gradually milk. Cook over medium heat, stirring constantly, until thick and bubbling, ~8–10 minutes. Off heat: stir in vanilla and butter. Cool slightly.</li>
+        <li>In a 9×13 or trifle dish, layer wafers, banana slices, and warm custard. Repeat. End with custard.</li>
+        <li>Top with whipped cream or bake on a meringue at 350°F until tipped golden.</li>
+        <li>Chill at least 4 hours (overnight best) so wafers soften.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Bananas should be ripe with freckles but not black mush — too green tastes starchy.</li>
+        <li>Constant stirring on the custard — walk away and you’ll scramble yolks on the bottom.</li>
+        <li>Warm custard over bananas helps them not brown as fast; still chill promptly.</li>
+        <li>Overnight rest is the secret texture: cookies become cake-like. Serve cold.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="tt-pecan-pie">
+    <div class="head">
+      <h2>Pecan Pie</h2>
+      <p class="chef">Chef says: Pecan pie is sticky theology, children. Toasted nuts, dark sugar, a set custard that slices clean. Burn the crust and I’ll know.</p>
+    </div>
+    <p class="story">Holiday finale and potluck closer — Georgia and Texas both claim pecan pride. Toast the nuts, mind the bake so the center barely jiggles, and cool completely before you preach about slices.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Southern Top Ten · Sticky, set, sacred</span></div>
+      </div>
+      <div>
+        <p class="meta">One 9-inch pie (8 slices)</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 unbaked 9-inch pie crust</li>
+        <li>2 cups pecan halves</li>
+        <li>3 large eggs</li>
+        <li>1 cup light corn syrup</li>
+        <li>1/2 cup packed brown sugar</li>
+        <li>1/4 cup melted butter</li>
+        <li>1 tablespoon vanilla</li>
+        <li>1/2 teaspoon salt</li>
+        <li>1 tablespoon bourbon (optional)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 350°F. Toast pecans on a sheet 8 minutes until fragrant; cool. Scatter in crust.</li>
+        <li>Whisk eggs, corn syrup, brown sugar, butter, vanilla, salt, and bourbon. Pour over pecans (nuts rise — that’s normal).</li>
+        <li>Bake 50–60 minutes until edges are set and center jiggles slightly like gelatin. Tent crust with foil if browning too fast.</li>
+        <li>Cool on a rack at least 3 hours before slicing.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Toast pecans first — raw nuts taste flat compared to roasted.</li>
+        <li>Pull when the center still has a slight wobble; it finishes setting as it cools. Wait for firm and you get candy-brick.</li>
+        <li>Cool completely — warm pecan pie slices into soup.</li>
+        <li>Blind-bake the crust 10 minutes if you hate soggy bottoms; dock and weight it.</li>
+      </ul>
+    </div>
+  </article>
+  <section class="part" id="part-iii">
+    <h2>Part III — Celebrity Kitchen</h2>
+    <p>Documented favorites only. Warm homage — never impersonation. Children, the famous pull up a chair; we keep the ladle.</p>
+  </section>
+  <div class="celeb-intro" id="celeb-elvis">
+    <h2>Elvis Presley — Graceland &amp; Memphis</h2>
+    <p class="conn">Southern connection: Tupelo, MS → Memphis, TN; Graceland kitchen lore</p>
+    <p class="homage">Children, tip your hat to Tupelo and Memphis. I won’t pretend to be the King — I’m just cooking in the shadow of what Graceland’s cooks said he loved. Documented favorites only. Pass the napkin.</p>
+    <p class="docnote">Documented favorites (Graceland cooks Mary Jenkins Langston, Nancy Rooks; Adler’s cuisine biography): fried PB &amp; banana sandwich, meatloaf, banana pudding, crisp bacon breakfasts. Homage recipes — not official Elvis Presley Enterprises products.</p>
+  </div>
+  <article class="recipe" id="elvis-pb">
+    <div class="head">
+      <h2>Fried Peanut Butter &amp; Banana Sandwich (Elvis Homage)</h2>
+      <p class="chef">Chef says: Children, I ain’t Elvis — I’m just a cafeteria philosopher paying respects. Graceland cooks fried this sandwich in butter until the bread went gold and the banana went soft. That’s documented love, not rumor.</p>
+    </div>
+    <p class="story">Mary Jenkins Langston and other Graceland cooks described the King’s fried PB-and-banana sandwich so often it became American folklore. White bread, peanut butter, ripe banana, skillet butter — sometimes bacon fat in the telling. This is a home-kitchen homage to that documented favorite.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Graceland homage · Documented favorite</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 1 hungry legend (or 2 who share)</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 slices soft white bread</li>
+        <li>2–3 tablespoons creamy peanut butter</li>
+        <li>1 ripe banana, sliced</li>
+        <li>2–3 tablespoons butter (or bacon drippings)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Spread peanut butter thick on both slices. Layer banana on one side; close the sandwich.</li>
+        <li>Melt butter in a skillet over medium heat. Fry sandwich until deep golden, 2–3 minutes per side, pressing gently.</li>
+        <li>Slice diagonally. Serve hot. Optional: crisp bacon on the side if you’re living dangerously.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Banana must be ripe — green bananas stay chalky when fried.</li>
+        <li>Medium heat, not screaming high: you want the center warm before the bread burns.</li>
+        <li>Butter the pan, not the outside of the bread (or do both if you like extra shatter).</li>
+        <li>Press gently with a spatula so peanut butter seals the edges — less banana escape.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="elvis-meatloaf">
+    <div class="head">
+      <h2>Graceland-Style Meatloaf (Homage)</h2>
+      <p class="chef">Chef says: Meatloaf fed the King between shows, children — Mary Jenkins’ kitchen again. This is a home loaf inspired by that Memphis table, not a stolen recipe card.</p>
+    </div>
+    <p class="story">Alongside the famous sandwich, Graceland cooks pointed to meatloaf as everyday comfort at Elvis’s table. A glazed loaf, soft crumb, leftover sandwiches the next day — Southern meatloaf culture with a Memphis spotlight.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Memphis table homage · Meatloaf night</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 lb ground beef (or beef/pork mix)</li>
+        <li>1 cup breadcrumbs or crushed saltines</li>
+        <li>1/2 cup milk</li>
+        <li>2 eggs</li>
+        <li>1 onion, finely chopped</li>
+        <li>2 cloves garlic, minced</li>
+        <li>1/4 cup ketchup (plus 1/3 cup for glaze)</li>
+        <li>1 tablespoon Worcestershire</li>
+        <li>1 teaspoon salt</li>
+        <li>1/2 teaspoon black pepper</li>
+        <li>1 tablespoon brown sugar (for glaze)</li>
+        <li>1 teaspoon mustard (for glaze)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 350°F. Mix milk and breadcrumbs; let soak 5 minutes. Combine with meat, eggs, onion, garlic, 1/4 cup ketchup, Worcestershire, salt, pepper — gentle hands.</li>
+        <li>Shape into a freeform loaf on a lined sheet (or pack a loaf pan). Mix glaze: ketchup, brown sugar, mustard; spread on top.</li>
+        <li>Bake 55–70 minutes to 160°F internal. Rest 10 minutes before slicing.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Soak crumbs in milk first — dry crumbs steal moisture from the meat.</li>
+        <li>Mix until just combined; overworking makes tough meatloaf.</li>
+        <li>Freeform on a sheet browns better than a steamy loaf pan.</li>
+        <li>Rest before slicing or it crumbles into sad rubble.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-dolly">
+    <h2>Dolly Parton — Locust Ridge, East Tennessee</h2>
+    <p class="conn">Southern connection: Sevier County / Locust Ridge; country music &amp; country cooking</p>
+    <p class="homage">Children, we honor Miss Dolly the way you honor a neighbor who feeds the whole hollow — with chicken and dumplin’s and gratitude. Fan homage. She writes the songs; we mind the stove.</p>
+    <p class="docnote">Documented: chicken &amp; dumplin’s (TODAY; Dixie Fixin’s; Good Lookin’ Cookin’ with Rachel), Sunday fried chicken, peanut butter fudge, milk gravy for Carl. Strength: Solid.</p>
+  </div>
+  <article class="recipe" id="dolly-dumplings">
+    <div class="head">
+      <h2>Chicken &amp; Dumplin’s (Dolly Homage)</h2>
+      <p class="chef">Chef says: Dolly Parton ain’t in this kitchen, children — but East Tennessee chicken and dumplin’s sure are. She talks about ’em on TV, in cookbooks with sister Rachel, on sets when co-stars beg. We tip our apron and cook with respect.</p>
+    </div>
+    <p class="story">Sevier County’s favorite daughter has called chicken and dumplin’s a specialty and birthday favorite (TODAY; Dixie Fixin’s; Good Lookin’ Cookin’ with Rachel). This pot is a home homage to that East Tennessee comfort — flat dumplings, peppery broth, no rhinestones required.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>East Tennessee homage · Dumplin’ pot</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 whole chicken or 3 lb bone-in thighs/breasts</li>
+        <li>10 cups water</li>
+        <li>1 onion</li>
+        <li>2 carrots</li>
+        <li>2 celery ribs</li>
+        <li>Bay leaf, salt, pepper</li>
+        <li>DUMPLINGS: 2 cups flour</li>
+        <li>1 tsp salt</li>
+        <li>1/2 tsp baking powder</li>
+        <li>1/3 cup shortening</li>
+        <li>3/4 cup buttermilk</li>
+        <li>2 Tbsp butter</li>
+        <li>Black pepper generously</li>
+        <li>Parsley</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Stew chicken with aromatics until tender; remove meat, strain broth, season boldly. Return ~8 cups broth to simmer.</li>
+        <li>Make dumpling dough; roll thin; cut squares. Drop into gently boiling broth; cover 12–15 minutes.</li>
+        <li>Return shredded chicken; finish with butter and enough black pepper to make Dolly proud. Serve in bowls.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Broth must taste finished before dumplings — flour will mute it.</li>
+        <li>Thin dough for ‘dumplin’s’ that drink broth; thick pillows stay doughy.</li>
+        <li>Lid on while dumplings steam; constant stirring shreds them.</li>
+        <li>This is homage to documented favorites / published Parton family cooking — not a copy of a proprietary formula.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-cash">
+    <h2>Johnny Cash &amp; June Carter Cash</h2>
+    <p class="conn">Southern connection: Johnny — Kingsland/Dyess, Arkansas; June — Carter Family / Appalachia → Nashville</p>
+    <p class="homage">Children, the Cash and Carter table fed songs. Iron-pot chili and June’s skillet Stuff — we cook ’em as fan homage from what the family published, not as impersonators in black.</p>
+    <p class="docnote">Documented via The Cash and Carter Family Cookbook (John Carter Cash) &amp; NPR: iron-pot chili, June’s Stuff, pinto beans &amp; ham hocks, fried bologna &amp; eggs. Strength: Solid.</p>
+  </div>
+  <article class="recipe" id="cash-chili">
+    <div class="head">
+      <h2>Johnny’s Iron-Pot Chili (Homage)</h2>
+      <p class="chef">Chef says: Arkansas roots, Man in Black appetite. John Carter Cash put the family’s iron-pot chili in a cookbook — sirloin or venison, cornmeal to thicken. We tip our hat to Dyess Colony and cook our own pot.</p>
+    </div>
+    <p class="story">From The Cash and Carter Family Cookbook and NPR conversations with John Carter Cash: Johnny’s chili was serious business — beef or venison, thickened with cornmeal, born for an iron pot. Home adaptation for your Dutch oven.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Cash family homage · Iron pot</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 lb sirloin or chuck, cubed (or venison)</li>
+        <li>2 Tbsp oil</li>
+        <li>2 onions, chopped</li>
+        <li>4 cloves garlic</li>
+        <li>3 Tbsp chili powder</li>
+        <li>1 Tbsp cumin</li>
+        <li>1 tsp oregano</li>
+        <li>1 tsp salt</li>
+        <li>1/2 tsp black pepper</li>
+        <li>1/4 tsp cayenne</li>
+        <li>1 can (28 oz) crushed tomatoes</li>
+        <li>2 cups beef broth</li>
+        <li>2 Tbsp cornmeal</li>
+        <li>1 Tbsp masa harina or extra cornmeal (optional)</li>
+        <li>Optional: 1 minced jalapeño</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Brown meat in oil in a Dutch oven in batches; set aside. Sauté onions; add garlic and spices 1 minute.</li>
+        <li>Return meat; add tomatoes and broth. Simmer covered 1½–2 hours until tender.</li>
+        <li>Stir cornmeal with a little water; add to pot to thicken; simmer 15 minutes more. Taste salt and heat. Serve with cornbread.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Brown hard for fond — gray steamed beef makes gray chili.</li>
+        <li>Cornmeal thickener is the Cash-family signature move; whisk slurry to avoid lumps.</li>
+        <li>Venison runs leaner — add a spoon of oil or bacon if using wild game.</li>
+        <li>Better next day; fat rises and flavors settle overnight.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="recipe" id="june-stuff">
+    <div class="head">
+      <h2>June’s “Stuff” (Homage)</h2>
+      <p class="chef">Chef says: June Carter’s ‘Stuff’ is fried potatoes and carrots meeting peppers, mushrooms, onion, and a hot-pepper cheese melt. NPR and the family cookbook said it plain — so we cook it plain and grateful.</p>
+    </div>
+    <p class="story">June’s skillet ‘Stuff’ shows up in Cash family lore as a beloved jumble of fried vegetables crowned with spicy cheese. Weeknight food with Carter Family soul — homage, not a stage costume.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Carter table homage · Skillet Stuff</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>3 Tbsp oil or bacon fat</li>
+        <li>3 potatoes, diced</li>
+        <li>2 carrots, sliced thin</li>
+        <li>1 onion, sliced</li>
+        <li>1 bell pepper, sliced</li>
+        <li>8 oz mushrooms, sliced</li>
+        <li>Salt &amp; pepper</li>
+        <li>1–2 cups shredded pepper jack or hot-pepper cheese</li>
+        <li>Optional: pinch of red pepper flakes</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Heat fat in a wide skillet. Fry potatoes and carrots with salt until browning and nearly tender, 12–15 minutes, stirring occasionally.</li>
+        <li>Add onion, pepper, mushrooms; cook until soft and savory. Season well.</li>
+        <li>Scatter cheese over top; cover 2–3 minutes until melted and gooey. Serve hot from the skillet.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Don’t stir potatoes constantly — let them sear for crust.</li>
+        <li>Mushrooms need room or they steam; add after potatoes have color.</li>
+        <li>Pepper jack melt is the ‘June’ note — mild cheddar won’t bring the same kick.</li>
+        <li>Cast iron holds the cheese lava longer at the table.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-paula">
+    <h2>Paula Deen — Albany → Savannah</h2>
+    <p class="conn">Southern connection: Albany, GA → Savannah; The Lady &amp; Sons</p>
+    <p class="homage">Children, treat chef-celebrities like neighbors with cookbooks — tip the hat, cook the homage, don’t steal the restaurant’s soul. Gooey butter cake is her documented signature sweet.</p>
+    <p class="docnote">Documented signatures: Ooey Gooey Butter Cake, fried chicken lineage, cheese biscuits, Southern sides. Strength: Solid (professional cook / cookbooks).</p>
+  </div>
+  <article class="recipe" id="paula-gooey">
+    <div class="head">
+      <h2>Ooey Gooey Butter Cake (Paula Homage)</h2>
+      <p class="chef">Chef says: Savannah’s Lady put gooey butter cake on the map for a lot of living rooms, children. Cake-mix crust, cream-cheese custard top — sweet enough to make you hush. Homage to a documented signature, not a claim on her kitchen.</p>
+    </div>
+    <p class="story">Paula Deen’s ooey gooey butter cake is a published signature (pauladeen.com lineage / Lady &amp; Sons world) — St. Louis cousin by way of Savannah sweetness. Home bakers know the cream-cheese layer that stays gloriously under-set.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Savannah homage · Gooey center</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 12</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>CRUST: 1 box yellow cake mix</li>
+        <li>1 egg</li>
+        <li>1/2 cup melted butter</li>
+        <li>FILLING: 8 oz cream cheese, softened</li>
+        <li>2 eggs</li>
+        <li>1 teaspoon vanilla</li>
+        <li>16 oz powdered sugar (about 3½–4 cups)</li>
+        <li>1/2 cup melted butter</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 350°F. Grease a 9×13 pan. Mix cake mix, 1 egg, 1/2 cup butter; press into pan.</li>
+        <li>Beat cream cheese; add eggs and vanilla; beat in powdered sugar and remaining butter until smooth. Spread over crust.</li>
+        <li>Bake 40–50 minutes until edges are set and golden but center still a bit gooey. Cool before cutting into squares.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Pull while the center jiggles — overbake and you lose the ‘gooey’ in the name.</li>
+        <li>Softened cream cheese blends lump-free; cold cream cheese fights you.</li>
+        <li>Powdered sugar is the structure; don’t swap granulated or texture changes.</li>
+        <li>Cool completely for cleaner squares; warm gooey cake is delicious chaos.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-trisha">
+    <h2>Trisha Yearwood — Monticello, Georgia</h2>
+    <p class="conn">Southern connection: Monticello, GA; Yearwood family cookbooks &amp; Food Network</p>
+    <p class="homage">Children, Georgia kitchens raised singers who can also feed a crew. Trisha’s wild rice casserole energy — we honor the published family table, not the tour bus.</p>
+    <p class="docnote">Documented: chicken &amp; wild rice casserole, Gwen’s fried chicken, Grandma Yearwood’s coconut cake, blackberry cobbler. Strength: Solid.</p>
+  </div>
+  <article class="recipe" id="trisha-wild-rice">
+    <div class="head">
+      <h2>Chicken &amp; Wild Rice Casserole (Trisha Homage)</h2>
+      <p class="chef">Chef says: Monticello, Georgia sent Trisha Yearwood out with family recipes and Food Network cameras. Wild rice casserole is weeknight church — creamy, hearty, no pretense. We cook our homage from the published tradition.</p>
+    </div>
+    <p class="story">Chicken and wild rice casserole appears across Trisha Yearwood’s Home Cooking corpus / Food Network shares as family-table comfort. A home-kitchen adaptation with wild rice, chicken, and a creamy binder.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Georgia kitchen homage · Casserole night</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 cups cooked wild rice blend</li>
+        <li>3 cups cooked shredded chicken</li>
+        <li>1 can cream of mushroom soup</li>
+        <li>1 cup sour cream</li>
+        <li>1/2 cup chicken broth</li>
+        <li>1 onion, sautéed</li>
+        <li>1 cup sliced mushrooms, sautéed</li>
+        <li>1 cup shredded cheddar</li>
+        <li>1/2 teaspoon salt</li>
+        <li>1/2 teaspoon pepper</li>
+        <li>1 cup French-fried onions or buttered crumbs for topping</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 350°F. Butter a 9×13 dish.</li>
+        <li>Mix rice, chicken, soup, sour cream, broth, onion, mushrooms, half the cheddar, salt, pepper. Spread in dish; top with remaining cheddar and fried onions/crumbs.</li>
+        <li>Bake 30–35 minutes until bubbly and golden.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Cook wild rice fully first — hard grains won’t soften in the casserole bake alone.</li>
+        <li>Sauté onions/mushrooms to drive off water so the casserole isn’t soupy.</li>
+        <li>Rest 10 minutes after baking for cleaner scoops.</li>
+        <li>Homage to Yearwood family/Food Network published style — not a verbatim reprint.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-reba">
+    <h2>Reba McEntire — Southeastern Oklahoma</h2>
+    <p class="conn">Southern connection: Chockie / SE Oklahoma (Southern Plains country culture)</p>
+    <p class="homage">Children, Reba’s chili is published history — we cook the homage, we don’t claim the spotlight. Spicy, chunky, Oklahoma-proud.</p>
+    <p class="docnote">Documented: Hot ’n’ Spicy Chunky Beef Chili (Oklahoma Celebrity Cookbook 1991). Poke salad also published — skip here (toxin handling). Strength: Moderate–Solid for chili.</p>
+  </div>
+  <article class="recipe" id="reba-chili">
+    <div class="head">
+      <h2>Hot ’n’ Spicy Chunky Beef Chili (Reba Homage)</h2>
+      <p class="chef">Chef says: Oklahoma’s Reba put a beanless chuck chili in a celebrity cookbook back when print was king. Chunky, spicy, no beans arguing in the pot — that’s the documented lane. We tip the red hair and simmer our own.</p>
+    </div>
+    <p class="story">Reba McEntire’s Hot ’n’ Spicy Chunky Beef Chili from the Oklahoma Celebrity Cookbook (1991) has been widely reprinted — beanless chuck chili with heat. Home homage for a Dutch oven and a cold night.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Oklahoma homage · Beanless &amp; bold</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>3 lb beef chuck, cut in 1/2-inch cubes</li>
+        <li>2 Tbsp oil</li>
+        <li>2 onions, chopped</li>
+        <li>4 cloves garlic</li>
+        <li>1/4 cup chili powder</li>
+        <li>1 Tbsp cumin</li>
+        <li>1 tsp oregano</li>
+        <li>1 tsp salt</li>
+        <li>1/2–1 tsp cayenne</li>
+        <li>1 can (28 oz) diced tomatoes</li>
+        <li>1 can (15 oz) tomato sauce</li>
+        <li>1 cup beef broth</li>
+        <li>1 green bell pepper, chopped</li>
+        <li>Optional: 1 minced jalapeño</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Brown chuck in oil in batches; set aside. Sauté onions; add garlic and spices until fragrant.</li>
+        <li>Return beef; add tomatoes, sauce, broth, peppers. Simmer partly covered 2–2½ hours until beef is tender and chili thick.</li>
+        <li>Taste heat and salt. Serve with cornbread, cheddar, onions — still no beans unless you rebel.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Chuck needs time — under-simmered cubes stay chewy; wait for fork-tenderness.</li>
+        <li>Bloom chili powder in fat before liquids for deeper flavor.</li>
+        <li>Beanless means reduce until thick; don’t drown early with too much broth.</li>
+        <li>Heat builds overnight — go easier on cayenne day one if serving kids.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-carter">
+    <h2>Jimmy Carter — Plains, Georgia</h2>
+    <p class="conn">Southern connection: Plains, GA; peanut farmer; White House Southern menus</p>
+    <p class="homage">Children, plain Southern food raised a president. Cheese ring on the buffet, grits in the lore — we cook Rosalynn’s documented party ring as homage, not a White House claim.</p>
+    <p class="docnote">Documented: Plains Special Cheese Ring (Rosalynn); Southern staples — grits, fried chicken, greens, country ham, Friday fish fries (SFA / press). Strength: Solid for cheese ring + staples.</p>
+  </div>
+  <article class="recipe" id="carter-cheese-ring">
+    <div class="head">
+      <h2>Plains Special Cheese Ring (Carter Homage)</h2>
+      <p class="chef">Chef says: Plains, Georgia — peanuts, porch talk, and Rosalynn’s cheese ring with strawberry preserves in the middle. National Archives and Southern Living kept the recipe famous. Children, that’s presidential potluck energy.</p>
+    </div>
+    <p class="story">The Plains Special Cheese Ring — cheddar, mayo, pecans, onion, strawberry preserves in the center — is Rosalynn Carter’s documented party classic (National Archives / Southern Living / Taste of Home reprints). A cold appetizer with Georgia manners.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Plains, GA homage · Preserve center</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves a party (10–12 as appetizer)</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 lb sharp cheddar, finely grated</li>
+        <li>1 cup mayonnaise</li>
+        <li>1 cup chopped pecans</li>
+        <li>1 small onion, grated or minced fine</li>
+        <li>Black pepper to taste</li>
+        <li>Dash of cayenne</li>
+        <li>Strawberry preserves for the center</li>
+        <li>Crackers or toast points</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Mix cheddar, mayo, pecans, onion, pepper, and cayenne until a moldable paste.</li>
+        <li>Pack into a ring mold or shape a wreath on a plate; chill at least 2 hours until firm.</li>
+        <li>Unmold; fill the center with strawberry preserves. Serve with crackers.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Grate cheddar fine so the ring binds; coarse shreds crumble.</li>
+        <li>Chill hard — warm cheese ring slumps into regret.</li>
+        <li>Onion should be tiny; big pieces overwhelm and weep water.</li>
+        <li>Preserves in the center aren’t garnish theater — the sweet-salty contrast is the point.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-clinton">
+    <h2>Bill Clinton — Hope / Hot Springs, Arkansas</h2>
+    <p class="conn">Southern connection: Hope / Hot Springs; Little Rock governor’s mansion</p>
+    <p class="homage">Children, we cook history with timestamps. Mild ribs for the mansion years — documented by the cook who fed him. No claim he still eats ’em every Friday.</p>
+    <p class="docnote">Documented (Liza Ashley + press): mild BBQ ribs, cheeseburgers, chicken enchiladas, pies. Note later vegan/plant-based turn. Strength: Solid for era-specific favorites.</p>
+  </div>
+  <article class="recipe" id="clinton-ribs">
+    <div class="head">
+      <h2>Mild Arkansas BBQ Ribs (’90s Mansion Era Homage)</h2>
+      <p class="chef">Chef says: Children, note the era — campaign-trail and governor’s-mansion Bill loved mild barbecue ribs, per longtime Little Rock cook Liza Ashley. Later came health turns and different plates. This homage is the mild ’90s Arkansas table, not a medical prescription.</p>
+    </div>
+    <p class="story">Liza Ashley (Seattle Times 1993 and mansion lore) pointed to mild-sauced barbecue pork ribs among Clinton favorites of that era. Home oven ribs with a gentle tomato-brown sugar glaze — Arkansas comfort, labeled honestly.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Arkansas ’90s homage · Mild glaze</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 racks pork baby back or spare ribs (~4 lb)</li>
+        <li>2 Tbsp paprika</li>
+        <li>1 Tbsp brown sugar</li>
+        <li>1 Tbsp salt</li>
+        <li>1 tsp black pepper</li>
+        <li>1 tsp garlic powder</li>
+        <li>1/2 tsp chili powder (mild)</li>
+        <li>SAUCE: 1 cup ketchup</li>
+        <li>1/3 cup brown sugar</li>
+        <li>1/4 cup apple cider vinegar</li>
+        <li>1 Tbsp Worcestershire</li>
+        <li>1 tsp mustard</li>
+        <li>1/2 tsp smoked paprika</li>
+        <li>Pinch cayenne (optional, keep mild)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Rub ribs with spice mix; rest 1 hour or overnight.</li>
+        <li>Oven method: 300°F on a foil-lined sheet, meaty side up, loosely tented with foil, 2½–3 hours until tender. Unwrap last 20 minutes.</li>
+        <li>Warm sauce ingredients. Brush ribs; broil or bake 5–10 minutes to set glaze. Rest 10 minutes; slice.</li>
+        <li>Keep sauce mild — heat on the side for guests who want it.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Low oven + foil tent mimics smoker tenderness without a pit.</li>
+        <li>Mild means restrain cayenne — Ashley’s note was mild sauce; honor that for the homage.</li>
+        <li>Sauce late so sugar doesn’t burn during the long cook.</li>
+        <li>Label this ’90s/mansion-era favorite; Clinton’s later plant-based turn is a different chapter.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-oprah">
+    <h2>Oprah Winfrey — Kosciusko, Mississippi roots</h2>
+    <p class="conn">Southern connection: Born Kosciusko, MS; Southern food identity via roots + chef Art Smith</p>
+    <p class="homage">Children, when the most famous interviewer alive says cornbread and peas are the favorite meal, you listen — then you cook your own pot with respect.</p>
+    <p class="docnote">Documented: cornbread + black-eyed peas as favorite meal (birthday coverage); hot-water cornbread for Stedman; Art Smith buttermilk fried chicken for her 50th. Strength: Solid for peas/cornbread.</p>
+  </div>
+  <article class="recipe" id="oprah-cornbread-peas">
+    <div class="head">
+      <h2>Cornbread &amp; Black-Eyed Peas (Oprah Birthday Plate Homage)</h2>
+      <p class="chef">Chef says: Miss Oprah called cornbread and black-eyed peas her favorite meal around her 64th birthday — People, E!, the whole gossip choir. Mississippi roots on a plate. We cook the homage; she keeps the mic.</p>
+    </div>
+    <p class="story">Oprah Winfrey (Kosciusko, MS roots) publicly named cornbread and black-eyed field peas a favorite meal. Hot-water cornbread for Stedman also appears in coverage. This plate is a home homage to that documented pairing — plus pot liquor vibes.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Mississippi roots homage · Birthday plate</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>PEAS: 1 lb dried black-eyed peas, soaked</li>
+        <li>1 smoked turkey wing or ham hock</li>
+        <li>1 onion</li>
+        <li>2 cloves garlic</li>
+        <li>6 cups water/stock</li>
+        <li>1 bay leaf</li>
+        <li>Salt, pepper, pinch of red pepper flakes</li>
+        <li>1 tsp vinegar at end</li>
+        <li>CORNBREAD: use Cast-Iron Cornbread (Part II) or Everyday Love Quick Cornbread (Part I)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Simmer peas with smoked meat, onion, garlic, bay, and water until creamy-tender, 1–1½ hours. Season late with salt; finish with vinegar and pepper flakes.</li>
+        <li>Bake your cornbread of choice while peas finish.</li>
+        <li>Serve peas in bowls with pot liquor; cornbread on the side for dunking. Rosé optional — she mentioned it.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Salt peas late — early salt + old peas can stay hard.</li>
+        <li>Smoked turkey keeps the pot soulful without turning it into pure salt pork.</li>
+        <li>A teaspoon of vinegar at the end brightens earthiness.</li>
+        <li>Cornbread is the utensil; make enough for dunking and second helpings.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-tyler">
+    <h2>Tyler Perry — New Orleans → Atlanta</h2>
+    <p class="conn">Southern connection: New Orleans born; Atlanta studios; Southern Black church/food culture</p>
+    <p class="homage">Children, empire builders still eat breakfast. Grits and eggs — he said it; we cook it as homage, then get back to work.</p>
+    <p class="docnote">Documented: grits &amp; eggs quote; mac &amp; cheese / greens / yams / fried chicken associations; Art Smith ‘Tyler’s Rolls.’ Strength: Moderate–Solid.</p>
+  </div>
+  <article class="recipe" id="tyler-grits-eggs">
+    <div class="head">
+      <h2>Grits &amp; Eggs Breakfast (Tyler Homage)</h2>
+      <p class="chef">Chef says: Tyler Perry said it himself — he loves a good breakfast, grits and eggs. New Orleans born, Atlanta building empire, still talking about morning bowls. Homage plate, children — simple and right.</p>
+    </div>
+    <p class="story">Quoted love for grits and eggs sits beside broader Southern comfort (mac &amp; cheese, greens, yams) in coverage of Perry’s tastes and Art Smith restaurant nods. This is the breakfast homage: creamy grits, soft eggs, maybe a little cheese.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Atlanta breakfast homage · Grits first</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 2 to 4</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 cup grits</li>
+        <li>4 cups water</li>
+        <li>1/2 tsp salt</li>
+        <li>2 Tbsp butter</li>
+        <li>1/2 cup shredded cheddar (optional)</li>
+        <li>4–6 eggs</li>
+        <li>Black pepper</li>
+        <li>Hot sauce</li>
+        <li>Optional: crumbled bacon or sausage</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Cook grits in salted water until creamy; finish with butter and cheese. Keep warm.</li>
+        <li>Cook eggs your way — sunny-side, scrambled soft, or over-easy.</li>
+        <li>Spoon grits into bowls; top with eggs, pepper, hot sauce, and meat if using.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Whisk grits early to kill lumps; low simmer after.</li>
+        <li>Soft eggs — rubbery eggs shame good grits.</li>
+        <li>Cheese optional but on-brand for Southern breakfast bowls.</li>
+        <li>Documented as a quoted favorite breakfast — not a formal Perry cookbook recipe.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-beyonce">
+    <h2>Beyoncé — Houston, Texas</h2>
+    <p class="conn">Southern connection: Houston; Knowles family; Frenchy’s as hometown soul-food anchor</p>
+    <p class="homage">Children, we celebrate Houston pride without stealing restaurant secrets. Fried chicken plate inspired by where she eats — our skillet, our beans, clear label.</p>
+    <p class="docnote">Documented: Frenchy’s loyalty / orders described in press; later Houston catering soul plates. Strength: Solid for restaurant loyalty; dish list from press — not a personal cookbook.</p>
+  </div>
+  <article class="recipe" id="bey-frenchys">
+    <div class="head">
+      <h2>Houston Fried Chicken Plate (Frenchy’s-Inspired Homage)</h2>
+      <p class="chef">Chef says: Listen carefully, children — Beyoncé’s Houston love for Frenchy’s is documented. We are NOT cooking Frenchy’s secret formula. We’re making a home fried-chicken plate inspired by the soul-food spread the press says shows up around that loyalty: chicken, red beans &amp; rice, greens, cornbread. Homage. Period.</p>
+    </div>
+    <p class="story">Coverage (People, Eater Houston, Tina Knowles / Harvey relief context) ties Beyoncé to Frenchy’s Chicken in Houston. Typical order attributions include fried chicken, red beans &amp; rice, fries, greens, cornbread, lemon pound cake. This is a home-kitchen inspired plate — not a proprietary restaurant recipe.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Houston homage · NOT a proprietary recipe</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>FRIED CHICKEN: use Buttermilk Fried Chicken method (Part II) with a pinch of Creole seasoning in the flour</li>
+        <li>RED BEANS: 1 lb red kidney beans, soaked</li>
+        <li>1 onion</li>
+        <li>1 green pepper</li>
+        <li>2 celery ribs</li>
+        <li>3 garlic cloves</li>
+        <li>1 smoked sausage link, sliced</li>
+        <li>1 bay leaf</li>
+        <li>1 tsp thyme</li>
+        <li>Salt, pepper, cayenne</li>
+        <li>Cooked white rice</li>
+        <li>SIDES: collards or simple sautéed greens; cornbread from Part I or II</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Season and fry chicken per Part II method; keep warm on a rack.</li>
+        <li>For red beans: sauté trinity + sausage; add beans, bay, thyme, water to cover by 2 inches. Simmer until creamy, 1½–2 hours, mashing some beans for body. Season; serve over rice.</li>
+        <li>Plate: chicken, red beans &amp; rice, greens, cornbread. Lemon pound cake if you’re feeling Houston bakery energy — your recipe, not theirs.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>LEGAL/TONE: Do not claim this is Frenchy’s recipe — it isn’t.</li>
+        <li>Creole seasoning in the dredge nods Houston/Louisiana Gulf flavor without copying a chain formula.</li>
+        <li>Mash a cup of beans against the pot wall for natural creaminess — no need for cream.</li>
+        <li>Restaurant loyalty ≠ published cookbook; keep language as ‘inspired by documented favorite spot.’</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-favre">
+    <h2>Brett Favre — Kiln / Gulfport, Mississippi</h2>
+    <p class="conn">Southern connection: Gulfport / Kiln, MS</p>
+    <p class="homage">Children, sometimes one family pot is enough fame. Jambalaya from the Favre table — we cook the homage and leave the playbook alone.</p>
+    <p class="docnote">Documented: family jambalaya (Parade / circulated family recipe). Strength: Moderate–Solid for one signature.</p>
+  </div>
+  <article class="recipe" id="favre-jambalaya">
+    <div class="head">
+      <h2>Favre Family Jambalaya (Homage)</h2>
+      <p class="chef">Chef says: Kiln, Mississippi sent a quarterback and a family jambalaya that Parade and the internet kept circulating — chicken, shrimp, ham, andouille, peppers, tomato, rice. One solid signature. We cook that one and don’t invent a whole Favre menu.</p>
+    </div>
+    <p class="story">Brett Favre’s family jambalaya has been widely published as a Parade/family recipe: a tomato-forward pot with mixed meats and shrimp. Home Dutch-oven homage for game day or any day Gulf Coast nostalgia hits.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Mississippi Gulf homage · One signature pot</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 Tbsp oil</li>
+        <li>1 lb andouille, sliced</li>
+        <li>1 lb chicken thighs, cubed</li>
+        <li>8 oz ham, diced</li>
+        <li>1 onion</li>
+        <li>1 green pepper</li>
+        <li>2 celery ribs</li>
+        <li>4 garlic cloves</li>
+        <li>1 can (14 oz) diced tomatoes</li>
+        <li>2 Tbsp tomato paste</li>
+        <li>3 cups chicken broth</li>
+        <li>2 cups long-grain rice</li>
+        <li>1 lb shrimp, peeled</li>
+        <li>2 tsp Cajun seasoning</li>
+        <li>2 bay leaves</li>
+        <li>Salt, pepper</li>
+        <li>Green onions</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Brown andouille, then chicken, then ham in oil; set meats aside. Sauté trinity until soft; add garlic, Cajun seasoning, tomato paste 1 minute.</li>
+        <li>Add tomatoes, broth, bay, rice, and meats. Bring to boil; cover and simmer low 20–25 minutes until rice tender.</li>
+        <li>Stir in shrimp; cover 5–7 minutes until pink. Rest 5 minutes; fluff; top with green onions.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Brown meats for fond — flavor lives on the pot bottom.</li>
+        <li>Don’t lift the lid every minute or rice cooks unevenly.</li>
+        <li>Shrimp last — they need minutes, not the whole rice cook.</li>
+        <li>Only feature this documented family jambalaya; don’t invent extra ‘Favre favorites.’</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-reese">
+    <h2>Reese Witherspoon — New Orleans / Nashville</h2>
+    <p class="conn">Southern connection: Born New Orleans; raised Nashville; Whiskey in a Teacup Southern hosting</p>
+    <p class="homage">Children, hosting books are love letters to the table. Cornbread chili pie — we bake our homage from the published Southern entertaining lane.</p>
+    <p class="docnote">Documented: Cornbread Chili Pie, Mississippi Mud Trifle, fried chicken &amp; BBQ notes in Whiskey in a Teacup. Strength: Solid.</p>
+  </div>
+  <article class="recipe" id="reese-chili-pie">
+    <div class="head">
+      <h2>Cornbread Chili Pie (Reese Homage)</h2>
+      <p class="chef">Chef says: Reese Witherspoon’s Whiskey in a Teacup put Southern hosting in hardcover — including cornbread chili pie. Nashville-raised, New Orleans-born. We bake the homage in a skillet or casserole and pour sweet tea.</p>
+    </div>
+    <p class="story">Cornbread Chili Pie from Whiskey in a Teacup (tested widely by Kitchn/Delish types) layers chili with a cornbread lid — weeknight Southern casserole energy with Reese’s entertaining stamp. Home adaptation.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Whiskey in a Teacup homage · Chili under gold</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 lb ground beef or half beef/pork</li>
+        <li>1 onion, diced</li>
+        <li>2 cloves garlic</li>
+        <li>1 can (15 oz) chili beans or kidney beans</li>
+        <li>1 can (14 oz) diced tomatoes</li>
+        <li>2 Tbsp chili powder</li>
+        <li>1 tsp cumin</li>
+        <li>1 cup corn kernels</li>
+        <li>1 cup shredded cheddar</li>
+        <li>Salt &amp; pepper</li>
+        <li>TOP: 1 box Jiffy corn muffin mix + ingredients called for (egg, milk) OR homemade cornbread batter for one skillet</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 400°F. Brown meat with onion; add garlic, spices, tomatoes, beans, corn; simmer 10 minutes. Season; stir in half the cheddar. Spread in a 9×13 or deep skillet.</li>
+        <li>Mix cornbread batter; pour over chili; sprinkle remaining cheddar.</li>
+        <li>Bake 20–25 minutes until cornbread is golden and set. Rest 10 minutes.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Simmer chili thick before topping — watery chili makes soggy cornbread.</li>
+        <li>Don’t overmix Jiffy batter; lumps are fine.</li>
+        <li>Rest so the layers set for scooping instead of lava slide.</li>
+        <li>Homage to a published lifestyle-cookbook dish — not an endorsement deal.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-mcconaughey">
+    <h2>Matthew McConaughey — Uvalde / Longview, Texas</h2>
+    <p class="conn">Southern connection: Uvalde / Longview, TX</p>
+    <p class="homage">Children, Texas casseroles don’t need a red carpet. King Ranch on a weeknight — homage to a documented McConaughey favorite.</p>
+    <p class="docnote">Documented: King Ranch chicken casserole; Opie’s BBQ jalapeño sausage with spicy corn. Strength: Solid for those staples.</p>
+  </div>
+  <article class="recipe" id="mmc-king-ranch">
+    <div class="head">
+      <h2>King Ranch Chicken Casserole (McConaughey Homage)</h2>
+      <p class="chef">Chef says: Alright, alright, alright — Texas tables love King Ranch casserole, and Matthew McConaughey’s been tied to it on Diners, Drive-Ins and Dives / Monument Cafe talk. Homage ‘caschiladas,’ children. No trademark on the drawl.</p>
+    </div>
+    <p class="story">King Ranch chicken — tortillas, chicken, peppers, creamy tomato-chili gravy, cheese — is a Texas church-supper classic McConaughey has publicly enjoyed (DDD / Texas Monthly orbit). Home casserole homage.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Texas homage · Caschilada energy</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>3 cups cooked shredded chicken</li>
+        <li>12 corn tortillas, torn or quartered</li>
+        <li>1 onion, diced</li>
+        <li>1 red bell pepper, diced</li>
+        <li>1 can Ro-Tel tomatoes with green chilies</li>
+        <li>1 can cream of mushroom soup</li>
+        <li>1 can cream of chicken soup</li>
+        <li>1 cup chicken broth</li>
+        <li>2 cups shredded cheddar-Jack blend</li>
+        <li>1 tsp chili powder</li>
+        <li>1/2 tsp cumin</li>
+        <li>Oil</li>
+        <li>Salt &amp; pepper</li>
+        <li>Cilantro optional</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Preheat oven to 350°F. Sauté onion and pepper in oil until soft. Stir in Ro-Tel, soups, broth, chili powder, cumin; warm into a sauce. Season.</li>
+        <li>In a greased 9×13, layer tortillas, chicken, sauce, cheese; repeat. End with sauce and cheese.</li>
+        <li>Bake 30–35 minutes until bubbly. Rest 10 minutes; cilantro if you like.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Briefly dip tortillas in warm sauce so they don’t stay cardboard-dry.</li>
+        <li>Ro-Tel brings the Texas tang; mild vs hot is your call.</li>
+        <li>Rest before cutting or it serves as soup with chips.</li>
+        <li>Documented McConaughey favorite lane — home adaptation of a statewide classic.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-willie">
+    <h2>Willie Nelson — Abbott, Texas</h2>
+    <p class="conn">Southern connection: Abbott, TX; outlaw country / Texas identity</p>
+    <p class="homage">Children, if Willie can eat waffles almost every day, you can heat the iron on a Saturday. CFS optional but recommended. Homage only.</p>
+    <p class="docnote">Documented: waffles ‘almost every day’ (Annie Nelson); CFS often paired in food coverage. Strength: Solid for waffles/CFS habit.</p>
+  </div>
+  <article class="recipe" id="willie-cfs-waffles">
+    <div class="head">
+      <h2>Chicken-Fried Steak &amp; Waffles (Willie Homage)</h2>
+      <p class="chef">Chef says: Willie never met a waffle he didn’t like — Annie’s been on waffle duty, and chicken-fried steak rides shotgun in the coverage. Abbott, Texas outlaw breakfast. Homage plate. On the road again… to the skillet.</p>
+    </div>
+    <p class="story">Willie Nelson’s waffle habit is well attested (Annie Nelson; Allrecipes/Whiskey Riff coverage; cannabis cookbook context). Chicken-fried steak often pairs in secondary food coverage. CFS + waffles is the homage breakfast of champions who nap after.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Abbott, TX homage · Waffles almost every day</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>CFS: 4 cube steaks</li>
+        <li>1 cup flour</li>
+        <li>1 tsp paprika</li>
+        <li>1 tsp salt</li>
+        <li>1 tsp black pepper</li>
+        <li>1/2 tsp garlic powder</li>
+        <li>2 eggs + 1/4 cup milk</li>
+        <li>Oil for frying</li>
+        <li>GRAVY: 3 Tbsp drippings</li>
+        <li>3 Tbsp flour</li>
+        <li>2 cups milk</li>
+        <li>Salt &amp; lots of pepper</li>
+        <li>WAFFLES: your favorite mix or 2 cups flour, 2 Tbsp sugar, 1 Tbsp baking powder, 1/2 tsp salt, 2 eggs, 1¾ cups milk, 1/3 cup melted butter</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Season flour. Dredge steaks in flour, egg wash, flour again. Fry in 1/4-inch oil ~350°F until golden, 3–4 min/side. Keep warm.</li>
+        <li>Pour off all but 3 Tbsp fat; whisk flour; add milk for pepper gravy.</li>
+        <li>Cook waffles. Plate waffle, CFS, gravy over both — syrup on the side for the sweet school of thought.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Dry steaks well before dredging so crust sticks.</li>
+        <li>Double dredge = CFS crust; single dredge is just sad steak.</li>
+        <li>Gravy wants aggressive black pepper — Willie’s Texas table energy.</li>
+        <li>Waffle iron hot and greased; first waffle is the sacrifice pancake of destiny.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-loretta">
+    <h2>Loretta Lynn — Butcher Holler, Kentucky</h2>
+    <p class="conn">Southern connection: Butcher Holler, KY (Appalachian South)</p>
+    <p class="homage">Children, coal-country cooking doesn’t need rhinestones. Loretta wrote it down — we simmer the homage and thank the holler.</p>
+    <p class="docnote">Documented: chicken &amp; dumplings, biscuits, fudge, peanut brittle in You’re Cookin’ It Country. Strength: Solid.</p>
+  </div>
+  <article class="recipe" id="loretta-dumplings">
+    <div class="head">
+      <h2>Appalachian Chicken &amp; Dumplings (Loretta Homage)</h2>
+      <p class="chef">Chef says: Butcher Holler raised Loretta Lynn on real country cooking — her cookbook You’re Cookin’ It Country put chicken and dumplings in print. We honor the holler with our own pot. Fan homage, children.</p>
+    </div>
+    <p class="story">Loretta Lynn’s You’re Cookin’ It Country collects Appalachian favorites including chicken and dumplings, biscuits, and sweets. This pot leans holler-style: stewed bird, flat dumplings, black pepper. Separate from Dolly’s East Tennessee pot — same love, different hollow.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Butcher Holler homage · Country cooking</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>3 lb bone-in chicken pieces</li>
+        <li>9 cups water</li>
+        <li>1 onion</li>
+        <li>2 carrots</li>
+        <li>2 celery</li>
+        <li>Salt, pepper, bay</li>
+        <li>DUMPLINGS: 2 cups flour</li>
+        <li>1 tsp salt</li>
+        <li>1/4 cup lard or shortening</li>
+        <li>2/3 cup cold water or buttermilk</li>
+        <li>Butter to finish</li>
+        <li>Parsley</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Stew chicken with aromatics until falling off bone; shred; strain and season broth.</li>
+        <li>Make stiff dumpling dough; roll thin; cut squares. Simmer in broth covered ~15 minutes.</li>
+        <li>Return chicken; butter; heavy pepper. Serve in deep bowls.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Lard in dumplings is old-holler texture — shortening works if that’s what’s in the tin.</li>
+        <li>Broth from bones beats broth from nowhere — use the carcass.</li>
+        <li>Keep Dolly’s and Loretta’s chapters distinct in your mind: both dumplings, both documented, both homage.</li>
+        <li>Published cookbook inspiration — not a stage costume.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-gladys">
+    <h2>Gladys Knight — Atlanta, Georgia</h2>
+    <p class="conn">Southern connection: Atlanta, GA; soul-food restaurateur</p>
+    <p class="homage">Children, when a legend puts chicken and waffles on the marquee, the home cook can still tip the hat from a waffle iron in pajamas.</p>
+    <p class="docnote">Documented: Chicken &amp; Waffles restaurant brand; Southern sides on menus; crunchy/juicy chicken preference in press. Strength: Solid as food-business signature.</p>
+  </div>
+  <article class="recipe" id="gladys-cw">
+    <div class="head">
+      <h2>Chicken &amp; Waffles (Gladys Knight Homage)</h2>
+      <p class="chef">Chef says: Gladys Knight put her name on chicken-and-waffles restaurants — Atlanta soul with a midnight-breakfast passport. We fry and iron at home as homage to that signature brand energy, not as a secret-menu steal.</p>
+    </div>
+    <p class="story">Gladys Knight (and Ron Winans) Chicken &amp; Waffles made the pairing a restaurant signature across Atlanta and beyond; coverage notes she likes fried chicken crunchy outside, juicy in. Home plate homage with buttermilk bird and crisp waffles.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Atlanta soul homage · Crunchy &amp; golden</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>Buttermilk fried chicken pieces (Part II method) — wings/tenders work great</li>
+        <li>WAFFLES: 2 cups flour</li>
+        <li>1 Tbsp sugar</li>
+        <li>1 Tbsp baking powder</li>
+        <li>1/2 tsp salt</li>
+        <li>2 eggs</li>
+        <li>1¾ cups milk</li>
+        <li>1/3 cup melted butter</li>
+        <li>1 tsp vanilla</li>
+        <li>Butter, maple syrup, hot sauce, powdered sugar optional</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Fry chicken; hold on a wire rack in a warm oven.</li>
+        <li>Mix waffle batter; cook until deep golden and crisp.</li>
+        <li>Plate waffle + chicken; butter, warm syrup, dash of hot sauce if you walk both lanes.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Crisp chicken on a rack — soggy chicken beside waffles is a tragedy.</li>
+        <li>Waffles slightly underdone stay soft; cook the extra 30 seconds for crunch that stands up to syrup.</li>
+        <li>Hot sauce + maple is the soul-brunch handshake.</li>
+        <li>Restaurant-brand signature — home homage, not claiming Gladys’s kitchen formulas.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-aretha">
+    <h2>Aretha Franklin — Memphis roots</h2>
+    <p class="conn">Southern connection: Born Memphis, TN; Detroit career; iconic soul-food fame</p>
+    <p class="homage">Children, respect the Queen. We cook greens and hot-water cornbread as the welcome plate — and we tell the chitlins truth carefully, without turning supper into a dare.</p>
+    <p class="docnote">Documented: chitlins as 1967 Ebony favorite; later health ‘cancellation’ (NPR 2008); greens / hot-water cornbread / baked chicken associations. Strength: Solid attribution; handle thoughtfully.</p>
+  </div>
+  <article class="recipe" id="aretha-hw-cornbread-greens">
+    <div class="head">
+      <h2>Hot-Water Cornbread &amp; Greens (Aretha Homage)</h2>
+      <p class="chef">Chef says: Careful now, children. Aretha Franklin named chitlins a favorite in 1967 Ebony — later she said she’d canceled them for health (NPR). We honor the Queen of Soul with an approachable plate: hot-water cornbread and greens. Chitlins stay in the history books unless you already know that work.</p>
+    </div>
+    <p class="story">Aretha (Memphis-born) is tied in coverage to classic soul plates — greens, hot-water cornbread, baked chicken — alongside the famous chitlins attribution. This homage leads with hot-water cornbread and pot greens: respectful, home-cookable, culturally grounded without demanding specialty offal work.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Queen of Soul homage · Approachable plate</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>GREENS: 2 bunches mustard or collard greens</li>
+        <li>1 smoked turkey wing</li>
+        <li>1 onion</li>
+        <li>Salt, pepper, vinegar, pepper flakes</li>
+        <li>HOT-WATER CORNBREAD: 2 cups fine cornmeal</li>
+        <li>1 tsp salt</li>
+        <li>1½ to 2 cups boiling water</li>
+        <li>Oil for frying</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Simmer greens with smoked turkey and onion until tender; season with salt, vinegar, flakes.</li>
+        <li>Stir boiling water into cornmeal and salt until a soft dough forms you can shape. Pat into small cakes.</li>
+        <li>Fry in 1/4-inch oil until deep golden each side. Drain; serve with greens and pot likker.</li>
+        <li>Optional historical note at the table: chitlins were a documented Aretha favorite in earlier years — cook them only if you know proper cleaning and long boiling food-safety practice.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Boiling water gelates the cornmeal — that’s what binds without eggs/flour.</li>
+        <li>Shape gently; too much water = batter that falls apart in oil.</li>
+        <li>Fry hot enough to crust quickly or cakes absorb grease.</li>
+        <li>SENSITIVITY: Lead with cornbread &amp; greens; treat chitlins as cultural/historical footnote, not a mandatory recipe.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-fats">
+    <h2>Fats Domino — New Orleans</h2>
+    <p class="conn">Southern connection: New Orleans, Louisiana</p>
+    <p class="homage">Children, the Fat Man kept New Orleans in a pot on the road. Red beans homage — piano not included.</p>
+    <p class="docnote">Documented: red beans &amp; pig’s feet on the road (NOLA.com); brief fried-chicken franchise footnote. Strength: Solid for red beans habit.</p>
+  </div>
+  <article class="recipe" id="fats-red-beans">
+    <div class="head">
+      <h2>Red Beans &amp; Rice (Fats Domino Homage)</h2>
+      <p class="chef">Chef says: Fats Domino cooked red beans and pig’s feet on a hot plate while traveling — New Orleans never left the man. Monday beans tradition, children. Homage pot. Rice on the side like the city taught us.</p>
+    </div>
+    <p class="story">NOLA.com profiles and obituaries recalled Fats Domino’s habit of red beans and pig’s feet on the road; he also briefly lent his name to a fried-chicken franchise. Feature the Monday red beans — home adaptation of a documented habit.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>New Orleans homage · Monday beans</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6 to 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 lb dried red kidney beans, soaked overnight</li>
+        <li>1 lb smoked sausage or andouille, sliced</li>
+        <li>Optional: 1–2 pig’s feet, cleaned (traditional Domino note) OR smoked ham hock</li>
+        <li>1 onion</li>
+        <li>1 green pepper</li>
+        <li>2 celery ribs</li>
+        <li>4 garlic cloves</li>
+        <li>2 bay leaves</li>
+        <li>1 tsp thyme</li>
+        <li>1/2 tsp cayenne</li>
+        <li>Salt &amp; black pepper</li>
+        <li>Cooked long-grain rice</li>
+        <li>Green onions</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Sauté trinity and sausage; add garlic. Add beans, bay, thyme, cayenne, and water/stock to cover by 2 inches. Add pig’s feet or hock if using.</li>
+        <li>Simmer 2–3 hours until beans creamy, stirring and adding water as needed. Mash some beans for body. Season late with salt.</li>
+        <li>Serve over rice with green onions. French bread optional but correct.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Monday red beans used Sunday ham bone historically — any smoked bone helps.</li>
+        <li>Creaminess comes from time + mashing, not cream.</li>
+        <li>Pig’s feet are optional authenticity; ham hock is the easier grocery-store cousin.</li>
+        <li>Documented travel habit + NOLA identity — not a franchise secret recipe.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-emeril">
+    <h2>Emeril Lagasse — New Orleans culinary identity</h2>
+    <p class="conn">Southern connection: Massachusetts-born; New Orleans culinary identity; Emeril’s NOLA</p>
+    <p class="homage">Children, chef-celebrities publish their hits for a reason. BBQ shrimp homage — bread in hand, pepper on the tongue.</p>
+    <p class="docnote">Documented signatures: NOLA BBQ shrimp, banana cream pie, Essence/Creole corpus. Strength: Solid (chef celebrity).</p>
+  </div>
+  <article class="recipe" id="emeril-bbq-shrimp">
+    <div class="head">
+      <h2>New Orleans BBQ Shrimp (Emeril Homage)</h2>
+      <p class="chef">Chef says: Bam — carefully. Emeril’s New Orleans barbecue shrimp is butter, Worcestershire, pepper, and French bread for pushing. Chef-celebrity territory with published recipes. We cook a home homage and say thank you to NOLA.</p>
+    </div>
+    <p class="story">Emeril Lagasse’s BBQ shrimp (emerils.com lineage) is head-on shrimp in a peppery butter-Worcestershire sauce — not tomato BBQ. Sop with French bread. Home skillet homage to a documented signature.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>NOLA chef homage · Butter &amp; pepper</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4 as entrée / 6 as appetizer</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 lb large head-on shrimp (or peeled if needed)</li>
+        <li>2 sticks unsalted butter</li>
+        <li>2 Tbsp olive oil</li>
+        <li>8–10 garlic cloves, minced</li>
+        <li>2 Tbsp Worcestershire</li>
+        <li>2 Tbsp fresh lemon juice</li>
+        <li>2 tsp cracked black pepper (or more)</li>
+        <li>1 tsp paprika</li>
+        <li>1/2 tsp cayenne</li>
+        <li>1/2 tsp salt</li>
+        <li>2 tsp Emeril-style Essence or Creole seasoning</li>
+        <li>1/4 cup beer or shrimp stock (optional)</li>
+        <li>Chopped parsley</li>
+        <li>Warm French bread</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>In a wide skillet, melt butter with oil; cook garlic 1 minute. Add Worcestershire, lemon, spices, and beer/stock; simmer 2–3 minutes.</li>
+        <li>Add shrimp; cook until just pink and cooked through, 4–7 minutes depending on size. Don’t overcook.</li>
+        <li>Sprinkle parsley; serve in bowls with sauce and piles of French bread.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Head-on shrimp enrich the sauce — peel-at-table is part of the ritual.</li>
+        <li>Cracked black pepper is the backbone; pre-ground dust won’t do the same job.</li>
+        <li>Sauce should be emulsified and spoonable — whisk butter in off extreme heat if it breaks.</li>
+        <li>Published chef signature — home homage; ‘Bam’ optional and restrained.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-leah">
+    <h2>Leah Chase — New Orleans Creole</h2>
+    <p class="conn">Southern connection: New Orleans Creole; Dooky Chase’s Restaurant; civil-rights dining room</p>
+    <p class="homage">Children, some kitchens changed America before dessert. Miss Leah’s green gumbo — we simplify with respect, never with arrogance.</p>
+    <p class="docnote">Documented: Gumbo Z’Herbes; Creole fried chicken (Dooky Chase Cookbook). Strength: Solid (icon of Creole cuisine).</p>
+  </div>
+  <article class="recipe" id="leah-gumbo-zherbes">
+    <div class="head">
+      <h2>Gumbo Z’Herbes — Simplified (Leah Chase Homage)</h2>
+      <p class="chef">Chef says: Miss Leah Chase fed Civil Rights and Creole soul at Dooky Chase’s. Gumbo Z’Herbes — green gumbo for Holy Thursday — is her documented glory. We offer a simplified home homage with many greens, not a museum replica of nine sacred counts. Respect the Queen of Creole Cuisine.</p>
+    </div>
+    <p class="story">Leah Chase’s Gumbo Z’Herbes (The Dooky Chase Cookbook; TODAY shares) traditionally uses many greens and meats for Holy Thursday. This simplified home version keeps the green spirit: collards, mustard, turnip, spinach, smoked meat, filé optional — weeknight-possible reverence.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Dooky Chase homage · Green gumbo simplified</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 8</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>2 Tbsp oil</li>
+        <li>1 onion</li>
+        <li>1 green pepper</li>
+        <li>2 celery ribs</li>
+        <li>4 garlic cloves</li>
+        <li>1 ham hock or smoked turkey + 8 oz stew beef or hot sausage (optional meats)</li>
+        <li>2 bunches collards</li>
+        <li>1 bunch mustard greens</li>
+        <li>1 bunch turnip greens</li>
+        <li>1 bag spinach</li>
+        <li>10 cups water/stock</li>
+        <li>2 bay leaves</li>
+        <li>1 tsp thyme</li>
+        <li>1 Tbsp Worcestershire</li>
+        <li>Salt, pepper, cayenne</li>
+        <li>Cooked rice</li>
+        <li>Filé powder at table (optional)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Wash greens thoroughly; chop. Sauté trinity in oil; add garlic. Add meats and stock; simmer 30 minutes.</li>
+        <li>Add greens in handfuls with bay and thyme; simmer 1–1½ hours until silky and deep green-brown. Season; splash Worcestershire.</li>
+        <li>Serve over rice. Filé at the table if you like — don’t boil filé hard in the pot.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Wash greens like Leah would judge you — grit is disrespect.</li>
+        <li>Simplified ≠ careless: still use multiple greens for the ‘z’herbes’ character.</li>
+        <li>Filé off heat or at table; boiling filé can string.</li>
+        <li>Holy Thursday tradition traditionally aims for odd numbers of greens — home cooks may approximate with what’s fresh.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-edna">
+    <h2>Edna Lewis — Freetown, Virginia</h2>
+    <p class="conn">Southern connection: Freetown, VA; Grande Dame of Southern cooking; The Taste of Country Cooking</p>
+    <p class="homage">Children, before Southern food was a brand, Edna Lewis wrote it as seasons and neighbors. We fry chicken as homage to that grace.</p>
+    <p class="docnote">Documented: seasonal Virginia country cooking; pan-fried chicken; biscuits; preserved foods (Taste of Country Cooking). Strength: Solid.</p>
+  </div>
+  <article class="recipe" id="edna-pan-fried">
+    <div class="head">
+      <h2>Southern Pan-Fried Chicken (Edna Lewis Homage)</h2>
+      <p class="chef">Chef says: Edna Lewis — Grande Dame of Southern cooking, Freetown, Virginia. The Taste of Country Cooking taught a nation that seasonal farm cooking was high art. Pan-fried chicken in lard and butter is homage to that teaching, children — not a photocopy of every page.</p>
+    </div>
+    <p class="story">Edna Lewis’s Virginia country cooking centered seasonality, careful frying, and respect for ingredients. Pan-fried chicken associated with her teaching often uses good fat, unhurried browning, and buttermilk or careful seasoning. Home cast-iron homage.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Freetown, VA homage · Grande Dame</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 4 to 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1 chicken, cut up</li>
+        <li>2 cups buttermilk</li>
+        <li>2 tsp salt</li>
+        <li>1½ cups flour</li>
+        <li>1 tsp black pepper</li>
+        <li>1 tsp paprika</li>
+        <li>Lard, shortening, or half butter/half oil for frying (~1 inch depth)</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Soak chicken in buttermilk and 1 tsp salt 2–4 hours. Drain.</li>
+        <li>Season flour with remaining salt, pepper, paprika. Dredge chicken; rest 10 minutes.</li>
+        <li>Heat fat to ~325°F in cast iron. Fry skin-side down without crowding; turn when deep golden. Cook to 165°F interior. Drain on a rack.</li>
+        <li>Serve with seasonal vegetables and biscuits if you’re walking fully in her country-cooking light.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Lard/butter flavor is part of the old Virginia pan-fry character — all-vegetable oil works but tastes different.</li>
+        <li>Don’t rush the browning; Lewis’s cooking is patience food.</li>
+        <li>Rest dredged chicken so coating adheres.</li>
+        <li>Homage to a foundational author’s tradition — seasonal sides honor her as much as the bird.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="celeb-intro" id="celeb-justin">
+    <h2>Justin Wilson — Louisiana Cajun</h2>
+    <p class="conn">Southern connection: Louisiana Cajun storyteller-cook; PBS/TV cookbooks</p>
+    <p class="homage">Children, Cajun cooking came into living rooms with a laugh and a cast-iron truth. Dirty rice homage — season it like you mean it.</p>
+    <p class="docnote">Documented: dirty rice, okra gumbo, crawfish étouffée across Justin Wilson cookbooks/TV. Strength: Solid as Cajun media cook.</p>
+  </div>
+  <article class="recipe" id="justin-dirty-rice">
+    <div class="head">
+      <h2>Dirty Rice (Justin Wilson Homage)</h2>
+      <p class="chef">Chef says: I gar-on-tee you’d smile if Justin Wilson walked into the cafeteria, children. Cajun storyteller-cook — dirty rice with giblets, gumbo with a wink. Homage pot from his published repertoire, not a PBS tape dub.</p>
+    </div>
+    <p class="story">Justin Wilson’s cookbooks and TV episodes made dirty rice and crawfish étouffée living-room Cajun. This dirty rice uses chicken livers/gizzards (or sausage shortcut) for that ‘dirty’ color and depth — home homage.</p>
+    <div class="grid">
+      <div>
+        <div class="placeholder"><span>Cajun TV homage · I gar-on-tee</span></div>
+      </div>
+      <div>
+        <p class="meta">Serves 6</p>
+        <h3>Ingredients</h3>
+        <ul class="ings">
+        <li>1½ cups long-grain rice, cooked (about 4 cups cooked)</li>
+        <li>8 oz chicken livers</li>
+        <li>8 oz chicken gizzards (or 8 oz pork sausage as shortcut)</li>
+        <li>3 Tbsp oil</li>
+        <li>1 onion</li>
+        <li>1 green pepper</li>
+        <li>2 celery ribs</li>
+        <li>4 garlic cloves</li>
+        <li>1 tsp Cajun seasoning</li>
+        <li>1/2 tsp thyme</li>
+        <li>1/2 tsp black pepper</li>
+        <li>1/4 tsp cayenne</li>
+        <li>1/2 cup chicken stock</li>
+        <li>Green onions</li>
+        <li>Salt</li>
+        </ul>
+        <h3>How you do it</h3>
+        <ol class="steps">
+        <li>Pulse livers and cooked tender gizzards in a processor until finely chopped (or chop by hand). If using sausage, brown and crumble instead.</li>
+        <li>Sauté trinity in oil; add garlic and chopped giblets; cook until browned and cooked through. Season with Cajun spices.</li>
+        <li>Add stock; simmer a few minutes. Fold in cooked rice and green onions. Taste salt. Serve as side or main.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="secrets">
+      <h3>Secrets of the Kitchen</h3>
+      <ul>
+        <li>Cook gizzards separately until tender before chopping — they’re tough little characters.</li>
+        <li>Fine chop = ‘dirty’ look; big chunks feel like another dish.</li>
+        <li>Day-old rice folds better than fresh sticky rice.</li>
+        <li>Published Cajun-media cook repertoire — homage with humor, not mockery of the culture.</li>
+      </ul>
+    </div>
+  </article>
+  <div class="sidebar" id="celeb-kenny-sidebar">
+    <h3>Sidebar: Kenny Chesney (not a main chapter)</h3>
+    <p>Luttrell / East Tennessee — documented favorite ‘cheat’ meal is plain grilled cheese with extra salt (Taste of Country / PopCulture lists; song lore). Funny, attested, but not a Southern-recipe pillar. Chef says: children, if you need a grilled cheese break between gumbo pots, use good bread, real butter, extra salt — then get back to the serious food.</p>
+  </div>
+  <p class="back-top"><a href="#toc">↑ Back to the menu, children</a></p>
   <footer class="book">
-    Built for Julius from Desktop → Recipes screenshots · Fan homage to Chef (South Park) · Not affiliated with Comedy Central<br/>
-    Open this file in any browser. Original scans sit beside each recipe.
+    Built for Julius · Fan homage to Chef (South Park) · Not affiliated with Comedy Central<br/>
+    Celebrity chapters inspired by publicly documented favorites — no endorsements claimed<br/>
+    Part I original scans live beside each recipe · Live on GitHub Pages
   </footer>
 </div>
 </body>
