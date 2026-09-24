@@ -244,6 +244,69 @@
       font-style: italic;
     }
 
+
+  /* Equipment & Pantry kit grid */
+  .kit-block {
+    background: var(--paper);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid #e0c9a8;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  }
+  .kit-block .kit-intro {
+    padding: 1.25rem 1.5rem 0.5rem;
+    font-style: italic;
+    color: #5a3a28;
+  }
+  .kit-block h3.kit-sub {
+    margin: 1.25rem 1.5rem 0.75rem;
+    color: var(--terracotta);
+    font-size: 1.15rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e0c9a8;
+    padding-bottom: 0.35rem;
+  }
+  .kit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+    padding: 0.5rem 1.5rem 1.75rem;
+  }
+  .kit-card {
+    background: #fffaf3;
+    border: 1px solid #e0c9a8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(60,30,10,.08);
+    display: flex;
+    flex-direction: column;
+  }
+  .kit-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: #f0e6d4;
+  }
+  .kit-card .kit-body {
+    padding: 0.85rem 1rem 1.1rem;
+    flex: 1;
+  }
+  .kit-card h4 {
+    margin: 0 0 0.4rem;
+    color: var(--deep);
+    font-size: 1.05rem;
+    line-height: 1.25;
+  }
+  .kit-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #5a3a28;
+    line-height: 1.45;
+  }
+
   </style>
 </head>
 <body>
@@ -257,6 +320,9 @@
   </header>
   <nav class="toc" id="toc">
     <h2>What’s on the menu</h2>
+    <h3>Part 0 — Equipment &amp; Pantry</h3><ol>
+      <li><a href="#kit">Kitchen Kit &amp; Pantry Staples</a></li>
+    </ol>
     <h3>Part I — Original Kitchen Scans</h3><ol>
       <li><a href="#gumbo">Children… Seafood Gumbo (Alfre’s Way)</a></li>
       <li><a href="#cornbread">Everyday Love Quick Cornbread</a></li>
@@ -306,7 +372,92 @@
       <li><a href="#celeb-justin">Justin Wilson — Louisiana Cajun</a></li>
       <li><a href="#celeb-kenny-sidebar">Kenny Chesney (sidebar)</a></li>
     </ol>
-  </nav>  <section class="part" id="part-i">
+  </nav>
+
+  <section class="part" id="kit">
+    <h2>Part 0 — Equipment &amp; Pantry</h2>
+    <p>Children, before the recipes start talking, let’s talk about the tools and bottles that make Southern cooking honest.</p>
+  </section>
+  <div class="kit-block">
+    <p class="kit-intro">You don’t need a restaurant kitchen. You need a few heavy pans, cold fat for biscuits, and a pantry that already tastes like home. Season the iron. Taste as you go. Leave room for love.</p>
+    <h3 class="kit-sub">Equipment</h3>
+    <div class="kit-grid">
+      <article class="kit-card">
+        <img src="images/kit/kit-cast-iron.png" alt="Cast-iron skillet" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Cast-Iron Skillet</h4>
+          <p>The backbone. Season it, never soap it hard, fry chicken and cornbread in the same pan.</p>
+        </div>
+      </article>
+      <article class="kit-card">
+        <img src="images/kit/kit-dutch-oven.png" alt="Dutch oven" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Dutch Oven</h4>
+          <p>Gumbo, beans, braises. Heavy lid traps patience.</p>
+        </div>
+      </article>
+      <article class="kit-card">
+        <img src="images/kit/kit-fry-pot.png" alt="Deep-fry pot with thermometer" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Deep-Fry Pot</h4>
+          <p>Oil + clip-on thermometer. 350°F is your friend.</p>
+        </div>
+      </article>
+      <article class="kit-card">
+        <img src="images/kit/kit-biscuit-tools.png" alt="Biscuit cutter and tools" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Biscuit Tools</h4>
+          <p>Cold fat, light hands, sharp cutter.</p>
+        </div>
+      </article>
+    </div>
+    <h3 class="kit-sub">Pantry</h3>
+    <div class="kit-grid">
+      <article class="kit-card">
+        <img src="images/kit/pantry-buttermilk.png" alt="Buttermilk" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Buttermilk</h4>
+          <p>Tenderizer and tang for chicken and biscuits.</p>
+        </div>
+      </article>
+      <article class="kit-card">
+        <img src="images/kit/pantry-cornmeal.png" alt="Self-rising cornmeal" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Self-Rising Cornmeal</h4>
+          <p>Cornbread without overthinking.</p>
+        </div>
+      </article>
+      <article class="kit-card">
+        <img src="images/kit/pantry-hot-sauce.png" alt="Hot sauce" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Hot Sauce</h4>
+          <p>Vinegar heat that finishes almost everything.</p>
+        </div>
+      </article>
+      <article class="kit-card">
+        <img src="images/kit/pantry-smoked-meat.png" alt="Smoked turkey and ham hock" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Smoked Turkey / Ham Hock</h4>
+          <p>Greens and beans get their soul from smoke, not hours of guessing.</p>
+        </div>
+      </article>
+      <article class="kit-card">
+        <img src="images/kit/pantry-molasses.png" alt="Sorghum or molasses" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Sorghum / Molasses</h4>
+          <p>Sweet depth for beans, pies, and glaze.</p>
+        </div>
+      </article>
+      <article class="kit-card">
+        <img src="images/kit/pantry-pecans.png" alt="Pecans" loading="lazy" width="400" height="400"/>
+        <div class="kit-body">
+          <h4>Pecans</h4>
+          <p>Toast them. Pie, salads, and sticky fingers.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <section class="part" id="part-i">
     <h2>Part I — Original Kitchen Scans</h2>
     <p>Julius’s scanned pages, transcribed and plated beside the photographs. The cookbook’s first love.</p>
   </section>
